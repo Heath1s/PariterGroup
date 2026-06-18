@@ -1,0 +1,78 @@
+.footer {
+  background: var(--c-ink);
+  padding-top: var(--sp-12);
+  padding-bottom: var(--sp-12);
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--sp-8);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  text-decoration: none;
+}
+
+.logoDisplay {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-regular);
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.logoSans {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.tagline {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.45);
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--sp-3);
+}
+
+.email {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration) var(--ease);
+}
+
+.email:hover { color: #fff; }
+
+.copy {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 560px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-6);
+  }
+  .right { align-items: flex-start; }
+}

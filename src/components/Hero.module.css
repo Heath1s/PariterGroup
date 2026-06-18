@@ -1,0 +1,150 @@
+.hero {
+  background: var(--c-surface);
+  padding-top: var(--sp-24);
+  padding-bottom: var(--sp-24);
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-16);
+  align-items: center;
+}
+
+.content {
+  max-width: var(--max-w-text);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: var(--sp-5);
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-4xl), 5.5vw, var(--text-6xl));
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  line-height: var(--leading-tight);
+  color: var(--c-ink);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-6);
+}
+
+.sub {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--c-text);
+  max-width: 580px;
+  margin-bottom: var(--sp-10);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--sp-4) var(--sp-8);
+  background: var(--c-accent);
+  color: #fff;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semi);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--duration) var(--ease),
+              transform var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+}
+
+.btnPrimary:hover {
+  background: var(--c-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(201, 125, 26, 0.35);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-4) var(--sp-6);
+  color: var(--c-text-muted);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: color var(--duration) var(--ease),
+              border-color var(--duration) var(--ease);
+}
+
+.btnSecondary:hover {
+  color: var(--c-ink);
+  border-color: var(--c-border-strong);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform var(--duration) var(--ease);
+}
+
+.btnSecondary:hover .arrow {
+  transform: translateY(3px);
+}
+
+/* Decorative paired-line motif — visual echo of "side by side" */
+.aside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.motif {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.motifLine {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(to right, var(--c-accent), transparent);
+  border-radius: 2px;
+  opacity: 0.35;
+}
+
+.motifLine:nth-child(2) {
+  width: 80px;
+  opacity: 0.2;
+}
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-12);
+  }
+  .aside { display: none; }
+  .hero {
+    padding-top: var(--sp-16);
+    padding-bottom: var(--sp-20);
+  }
+}
+
+@media (max-width: 480px) {
+  .headline { letter-spacing: -0.01em; }
+  .btnPrimary, .btnSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .actions { flex-direction: column; }
+}

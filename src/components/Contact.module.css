@@ -1,0 +1,206 @@
+.contact {
+  background: var(--c-surface-alt);
+  padding-top: var(--sp-24);
+  padding-bottom: var(--sp-24);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-20);
+  align-items: start;
+}
+
+.header {
+  position: sticky;
+  top: 88px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-3xl), 3vw, var(--text-4xl));
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  color: var(--c-ink);
+  letter-spacing: -0.02em;
+  line-height: var(--leading-snug);
+  margin-bottom: var(--sp-5);
+}
+
+.sub {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--c-text-muted);
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-5);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--c-ink);
+}
+
+.labelOptional {
+  color: var(--c-text-muted);
+  font-weight: var(--weight-regular);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--c-text);
+  transition: border-color var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--c-text-muted);
+  opacity: 0.65;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px var(--c-accent-pale);
+}
+
+.inputError {
+  border-color: #d9534f;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error {
+  font-size: var(--text-sm);
+  color: #c53030;
+  margin-top: var(--sp-1);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding-top: var(--sp-2);
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4) var(--sp-8);
+  background: var(--c-accent);
+  color: #fff;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semi);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--duration) var(--ease),
+              transform var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+  align-self: flex-start;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--c-accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(201, 125, 26, 0.3);
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.fallback {
+  font-size: var(--text-sm);
+  color: var(--c-text-muted);
+}
+
+.emailLink {
+  color: var(--c-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration) var(--ease);
+}
+
+.emailLink:hover { color: var(--c-accent); }
+
+/* Success state */
+.success {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-5);
+  max-width: var(--max-w-text);
+}
+
+.successMark {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: #fff;
+  font-size: var(--text-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--weight-bold);
+}
+
+.successHeading {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-3xl), 3vw, var(--text-4xl));
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  color: var(--c-ink);
+  letter-spacing: -0.02em;
+}
+
+.successBody {
+  font-size: var(--text-lg);
+  color: var(--c-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-12);
+  }
+  .header { position: static; }
+}
+
+@media (max-width: 560px) {
+  .row { grid-template-columns: 1fr; }
+  .submit { width: 100%; }
+}

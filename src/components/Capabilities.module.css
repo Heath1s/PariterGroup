@@ -1,0 +1,78 @@
+.capabilities {
+  background: var(--c-surface);
+  padding-top: var(--sp-24);
+  padding-bottom: var(--sp-24);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-16);
+}
+
+.header {
+  max-width: var(--max-w-text);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-3xl), 3.5vw, var(--text-5xl));
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  color: var(--c-ink);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-4);
+}
+
+.sub {
+  font-size: var(--text-lg);
+  color: var(--c-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  list-style: none;
+}
+
+.card {
+  background: var(--c-surface);
+  padding: var(--sp-10) var(--sp-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  transition: background var(--duration) var(--ease);
+}
+
+.card:hover {
+  background: var(--c-surface-alt);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semi);
+  color: var(--c-ink);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+}
+
+.cardBody {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--c-text);
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card { padding: var(--sp-8) var(--sp-6); }
+}

@@ -1,0 +1,80 @@
+.about {
+  background: var(--c-surface);
+  padding-top: var(--sp-24);
+  padding-bottom: var(--sp-24);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-16);
+  align-items: start;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-3xl), 3.5vw, var(--text-5xl));
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  color: var(--c-ink);
+  letter-spacing: -0.02em;
+  line-height: var(--leading-snug);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.body p {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--c-text);
+}
+
+.body p:last-child {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--c-text-muted);
+}
+
+.body em {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--c-ink);
+}
+
+/* Paired decorative lines — the "pariter" motif */
+.divider {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 200px;
+}
+
+.dividerLine {
+  height: 1px;
+  background: var(--c-border);
+}
+
+.dividerLine:first-child {
+  width: 100%;
+}
+
+.dividerLine:last-child {
+  width: 60%;
+}
+
+@media (max-width: 860px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+}
