@@ -6,7 +6,7 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 24);
+    const handler = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
   }, []);
@@ -21,18 +21,17 @@ export default function Nav() {
           <span className={styles.logoSans}>&nbsp;Group</span>
         </a>
 
-        <nav aria-label="Main navigation">
-          <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`} role="list">
+        <nav className={styles.centerNav} aria-label="Main navigation">
+          <ul className={styles.links} role="list">
             <li><a href="#approach" className={styles.link} onClick={close}>Approach</a></li>
             <li><a href="#capabilities" className={styles.link} onClick={close}>What We Do</a></li>
             <li><a href="#about" className={styles.link} onClick={close}>About</a></li>
-            <li>
-              <a href="#contact" className={styles.cta} onClick={close}>
-                Start with an audit
-              </a>
-            </li>
           </ul>
         </nav>
+
+        <div className={styles.right}>
+          <a href="#contact" className={styles.cta}>Start with an audit</a>
+        </div>
 
         <button
           className={styles.menuBtn}
@@ -45,6 +44,21 @@ export default function Nav() {
           <span className={`${styles.bar} ${menuOpen ? styles.barOpen3 : ''}`} />
         </button>
       </div>
+
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          <ul role="list">
+            <li><a href="#approach" className={styles.mobileLink} onClick={close}>Approach</a></li>
+            <li><a href="#capabilities" className={styles.mobileLink} onClick={close}>What We Do</a></li>
+            <li><a href="#about" className={styles.mobileLink} onClick={close}>About</a></li>
+            <li>
+              <a href="#contact" className={styles.mobileCta} onClick={close}>
+                Start with an audit
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
     </header>
   );
 }

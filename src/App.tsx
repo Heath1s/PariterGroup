@@ -1,11 +1,10 @@
 import Nav from './components/Nav';
 import Hero from './components/Hero';
-import Problem from './components/Problem';
-import Approach from './components/Approach';
-import Capabilities from './components/Capabilities';
-import WhoWeServe from './components/WhoWeServe';
-import About from './components/About';
-import Contact from './components/Contact';
+import Positioning from './components/Positioning';
+import Features from './components/Features';
+import Process from './components/Process';
+import Trust from './components/Trust';
+import ClosingCTA from './components/ClosingCTA';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -14,12 +13,11 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <Problem />
-        <Approach />
-        <Capabilities />
-        <WhoWeServe />
-        <About />
-        <Contact />
+        <Positioning />
+        <Features />
+        <Process />
+        <Trust />
+        <ClosingCTA />
       </main>
       <Footer />
     </>

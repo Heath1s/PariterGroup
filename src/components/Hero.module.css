@@ -1,8 +1,20 @@
 .hero {
-  background: var(--c-surface);
-  padding-top: var(--sp-32);
-  padding-bottom: var(--sp-32);
-  border-bottom: 1px solid var(--c-border);
+  background:
+    radial-gradient(ellipse 100% 80% at 15% 60%, rgba(168,92,53,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 85% 30%, rgba(168,92,53,0.06) 0%, transparent 55%),
+    var(--stone);
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--sp-20);
+  padding-bottom: var(--sp-20);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-16);
+  align-items: center;
 }
 
 .content {
@@ -10,110 +22,79 @@
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-3);
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--c-text-muted);
-  margin-bottom: var(--sp-8);
-}
-
-.eyebrow::before {
-  content: '';
   display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--c-accent);
-  flex-shrink: 0;
+  margin-bottom: var(--sp-6);
 }
 
 .headline {
   font-family: var(--font-display);
-  font-size: clamp(var(--text-5xl), 7vw, var(--text-8xl));
-  font-weight: var(--weight-regular);
+  font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+  font-weight: 600;
   font-style: italic;
-  line-height: 1.08;
-  color: var(--c-ink);
-  letter-spacing: -0.03em;
-  margin-bottom: var(--sp-8);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: var(--sp-6);
+  max-width: 720px;
 }
 
-.sub {
-  font-size: var(--text-xl);
-  line-height: var(--leading-relaxed);
-  color: var(--c-text-muted);
-  max-width: 520px;
-  margin-bottom: var(--sp-12);
+.subhead {
+  font-size: var(--text-lg);
+  color: var(--ink-muted);
+  max-width: 560px;
+  line-height: var(--leading-body);
+  margin-bottom: var(--sp-10);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--sp-4);
+.cta {
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
 }
 
-.btnPrimary {
+.ctaButton {
   display: inline-flex;
   align-items: center;
   padding: var(--sp-4) var(--sp-8);
-  background: var(--c-accent);
-  color: #fff;
+  background: var(--clay);
+  color: #FAF7F2;
   font-size: var(--text-base);
-  font-weight: var(--weight-semi);
-  border-radius: var(--radius-md);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: background var(--duration) var(--ease),
-              transform var(--duration) var(--ease),
-              box-shadow var(--duration) var(--ease);
+  transition: background var(--duration-fast) var(--ease-out);
 }
 
-.btnPrimary:hover {
-  background: var(--c-accent-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(201, 125, 26, 0.3);
+.ctaButton:hover {
+  background: var(--clay-dark);
 }
 
-.btnSecondary {
-  display: inline-flex;
+.visual {
+  display: flex;
   align-items: center;
-  gap: var(--sp-2);
-  padding: var(--sp-4) var(--sp-2);
-  color: var(--c-text-muted);
-  font-size: var(--text-base);
-  font-weight: var(--weight-medium);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color var(--duration) var(--ease),
-              border-color var(--duration) var(--ease);
+  justify-content: flex-end;
 }
 
-.btnSecondary:hover {
-  color: var(--c-ink);
-  border-bottom-color: var(--c-ink);
+.decorSvg {
+  color: var(--clay);
+  opacity: 0.22;
+  width: 120px;
+  height: 200px;
 }
 
-.arrow {
-  display: inline-block;
-  transition: transform var(--duration) var(--ease);
-}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 
-.btnSecondary:hover .arrow {
-  transform: translateY(3px);
-}
+  .visual {
+    display: none;
+  }
 
-@media (max-width: 768px) {
   .hero {
-    padding-top: var(--sp-20);
-    padding-bottom: var(--sp-20);
+    min-height: 80vh;
   }
-  .btnPrimary, .btnSecondary {
-    width: 100%;
-    justify-content: center;
-  }
-  .actions { flex-direction: column; align-items: stretch; }
 }
