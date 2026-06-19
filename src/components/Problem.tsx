@@ -4,10 +4,12 @@ export default function Problem() {
   return (
     <section className={styles.problem} aria-labelledby="problem-heading">
       <div className={`container ${styles.inner}`}>
-        <span className="section-label">The problem</span>
-        <h2 id="problem-heading" className={styles.heading}>
-          The hours that slip away
-        </h2>
+        <div className={styles.left}>
+          <span className="section-label">The problem</span>
+          <h2 id="problem-heading" className={styles.heading}>
+            The hours that slip away
+          </h2>
+        </div>
         <div className={styles.body}>
           <p>
             Most established businesses run on tools that were never meant to work together.

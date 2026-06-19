@@ -1,29 +1,30 @@
 .about {
-  background: var(--c-surface);
-  padding-top: var(--sp-24);
-  padding-bottom: var(--sp-24);
+  background: var(--c-surface-alt);
+  padding-top: var(--sp-32);
+  padding-bottom: var(--sp-32);
+  border-top: 1px solid var(--c-border);
 }
 
 .inner {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-12);
+  gap: var(--sp-16);
 }
 
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--sp-16);
+  gap: var(--sp-20);
   align-items: start;
 }
 
 .heading {
   font-family: var(--font-display);
-  font-size: clamp(var(--text-3xl), 3.5vw, var(--text-5xl));
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
   font-weight: var(--weight-regular);
   font-style: italic;
   color: var(--c-ink);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: var(--leading-snug);
 }
 
@@ -36,45 +37,40 @@
 .body p {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
-  color: var(--c-text);
+  color: var(--c-text-muted);
 }
 
 .body p:last-child {
   font-family: var(--font-display);
   font-style: italic;
-  color: var(--c-text-muted);
+  font-size: var(--text-xl);
+  color: var(--c-ink);
+  opacity: 0.5;
 }
 
 .body em {
   font-family: var(--font-display);
   font-style: italic;
   color: var(--c-ink);
+  font-size: 1.05em;
 }
 
-/* Paired decorative lines — the "pariter" motif */
+/* Paired lines motif */
 .divider {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 200px;
+  max-width: 160px;
 }
 
 .dividerLine {
   height: 1px;
-  background: var(--c-border);
+  background: var(--c-border-strong);
 }
 
-.dividerLine:first-child {
-  width: 100%;
-}
-
-.dividerLine:last-child {
-  width: 60%;
-}
+.dividerLine:last-child { width: 55%; }
 
 @media (max-width: 860px) {
-  .content {
-    grid-template-columns: 1fr;
-    gap: var(--sp-8);
-  }
+  .content { grid-template-columns: 1fr; gap: var(--sp-8); }
+  .about { padding-top: var(--sp-20); padding-bottom: var(--sp-20); }
 }
