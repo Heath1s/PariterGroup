@@ -1,44 +1,53 @@
+import { useRegistration } from '../hooks/useRegistration';
 import styles from './Capabilities.module.css';
 
 const items = [
   {
-    title: 'One source of record',
-    body: 'We connect your older, disconnected platforms so information flows between them automatically. Orders, inventory, invoices — all in one place, without anyone having to move it.',
+    tick: 'one record',
+    title: 'One source of truth',
+    body: 'Orders, invoices, and inventory live in one place. No one spends the morning moving numbers between screens.',
   },
   {
-    title: 'Data that moves itself',
-    body: 'The manual relay between email, your job system, and your books stops. What used to take someone an hour happens in the background, accurately, every time.',
+    tick: 'said → kept, same day',
+    title: 'The relay, gone',
+    body: 'What\'s said reaches what\'s kept on its own. Tuesday\'s order is in the books on Tuesday — not whenever someone gets to it.',
   },
   {
-    title: 'Scheduling and coordination',
-    body: 'We bring the phone-and-whiteboard scheduling process into a single system — so dispatch, field crews, and the office are looking at the same information.',
+    tick: 'entered once',
+    title: 'Fewer errors, less chasing',
+    body: 'When a figure isn\'t retyped, it isn\'t mistyped. The detail that used to fall through the cracks simply arrives.',
   },
   {
-    title: 'A partner, not a project',
-    body: 'We stay on after the initial build. As your business changes, we adapt what we\'ve built — and take on more as the relationship grows.',
+    tick: 'one plan',
+    title: 'Scheduling that lines up',
+    body: 'Dispatch, the field crew, and the office all work from the same record — so the day runs on one plan, not three.',
   },
 ];
 
 export default function Capabilities() {
+  const ref = useRegistration<HTMLElement>();
+
   return (
-    <section id="capabilities" className={styles.capabilities} aria-labelledby="cap-heading">
-      <div className={`container ${styles.inner}`}>
-        <div className={styles.header}>
-          <span className="section-label">What we do</span>
-          <h2 id="cap-heading" className={styles.heading}>
-            Making your tools work the way your business does
+    <section id="capabilities" ref={ref} className={styles.caps} aria-labelledby="caps-h">
+      <div className="container">
+        <header className={styles.head}>
+          <p className="eyebrow">What we do</p>
+          <h2 id="caps-h" className={`said ${styles.heading}`}>
+            We bring your tools into one record
           </h2>
           <p className={styles.sub}>
-            We connect your systems, automate the data entry, and free your people
-            from the manual work that shouldn't be theirs to carry.
+            The work is plain: connect the systems you already run, and let what's said
+            reach what's kept without a person carrying it across.
           </p>
-        </div>
+        </header>
 
-        <ul className={styles.grid} aria-label="Capabilities">
-          {items.map((item) => (
-            <li key={item.title} className={styles.card}>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardBody}>{item.body}</p>
+        <ul className={styles.grid}>
+          {items.map((it) => (
+            <li key={it.title} className={styles.card}>
+              <span className={`kept ${styles.tick}`} aria-hidden="true">✓ {it.tick}</span>
+              <div className="rule" aria-hidden="true" />
+              <h3 className={`said ${styles.title}`}>{it.title}</h3>
+              <p className={styles.body}>{it.body}</p>
             </li>
           ))}
         </ul>

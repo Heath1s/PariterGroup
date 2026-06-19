@@ -1,76 +1,65 @@
 .about {
-  background: var(--c-surface-alt);
-  padding-top: var(--sp-32);
-  padding-bottom: var(--sp-32);
-  border-top: 1px solid var(--c-border);
+  background: var(--paper-said);
+  padding-block: var(--sp-32);
 }
 
-.inner {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-16);
-}
-
-.content {
+.grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: var(--sp-20);
   align-items: start;
 }
 
 .heading {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
-  font-weight: var(--weight-regular);
+  font-size: clamp(var(--text-3xl), 3.6vw, var(--text-5xl));
   font-style: italic;
-  color: var(--c-ink);
-  letter-spacing: -0.025em;
-  line-height: var(--leading-snug);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-block: var(--sp-4) var(--sp-6);
 }
 
 .body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-5);
-}
-
-.body p {
   font-size: var(--text-lg);
-  line-height: var(--leading-relaxed);
-  color: var(--c-text-muted);
+  line-height: var(--leading-loose);
+  color: var(--ink-muted);
+  max-width: var(--measure);
+  margin-bottom: var(--sp-5);
 }
+.body em { font-style: italic; color: var(--ink); }
 
-.body p:last-child {
-  font-family: var(--font-display);
+.pull {
+  font-size: var(--text-2xl);
   font-style: italic;
-  font-size: var(--text-xl);
-  color: var(--c-ink);
-  opacity: 0.5;
+  color: var(--ink);
+  max-width: 28rem;
+  margin-top: var(--sp-4);
 }
 
-.body em {
-  font-family: var(--font-display);
-  font-style: italic;
-  color: var(--c-ink);
-  font-size: 1.05em;
+/* Who-we-work-with — set into a ledger-paper card with the binding edge */
+.who {
+  background: var(--paper-kept);
+  border-left: 3px solid var(--binding);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--sp-10);
 }
 
-/* Paired lines motif */
-.divider {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 160px;
+.whoHeading {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  margin-block: var(--sp-4) var(--sp-5);
+  line-height: var(--leading-snug);
 }
 
-.dividerLine {
-  height: 1px;
-  background: var(--c-border-strong);
+.whoNote {
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  color: var(--rule);
+  margin-top: var(--sp-8);
 }
-
-.dividerLine:last-child { width: 55%; }
 
 @media (max-width: 860px) {
-  .content { grid-template-columns: 1fr; gap: var(--sp-8); }
-  .about { padding-top: var(--sp-20); padding-bottom: var(--sp-20); }
+  .about { padding-block: var(--sp-24); }
+  .grid { grid-template-columns: 1fr; gap: var(--sp-12); }
 }

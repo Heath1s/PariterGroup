@@ -1,100 +1,89 @@
 .hero {
   background:
-    radial-gradient(ellipse 100% 80% at 15% 60%, rgba(168,92,53,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 70% 50% at 85% 30%, rgba(168,92,53,0.06) 0%, transparent 55%),
-    var(--stone);
-  min-height: 92vh;
+    radial-gradient(ellipse 90% 70% at 12% 50%, rgba(176,84,58,0.07) 0%, transparent 60%),
+    var(--paper-said);
+  min-height: 90vh;
   display: flex;
   align-items: center;
-  padding-top: var(--sp-20);
-  padding-bottom: var(--sp-20);
+  padding-block: var(--sp-24);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--sp-16);
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--sp-20);
   align-items: center;
+  width: 100%;
 }
 
-.content {
-  max-width: 820px;
-}
+.lead { max-width: 38rem; min-width: 0; }
 
-.eyebrow {
-  display: block;
-  margin-bottom: var(--sp-6);
-}
+.eyebrow { display: block; margin-bottom: var(--sp-6); }
 
 .headline {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
-  font-weight: 600;
+  font-size: clamp(var(--text-4xl), 5.4vw, var(--text-6xl));
+  font-weight: 500;
   font-style: italic;
+  letter-spacing: -0.022em;
   line-height: var(--leading-tight);
-  letter-spacing: -0.02em;
-  color: var(--ink);
   margin-bottom: var(--sp-6);
-  max-width: 720px;
 }
 
-.subhead {
+.sub {
   font-size: var(--text-lg);
   color: var(--ink-muted);
-  max-width: 560px;
   line-height: var(--leading-body);
+  max-width: 34rem;
   margin-bottom: var(--sp-10);
-  transition:
-    opacity var(--duration-slow) var(--ease-out),
-    transform var(--duration-slow) var(--ease-out);
 }
 
-.cta {
-  transition:
-    opacity var(--duration-slow) var(--ease-out),
-    transform var(--duration-slow) var(--ease-out);
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-5); }
+
+/* ── The said / kept pair ── */
+.pair {
+  background: var(--paper-kept);
+  border: 1px solid var(--rule-faint);
+  border-radius: var(--radius-md);
+  padding: var(--sp-10);
+  box-shadow: 0 1px 0 rgba(33,28,23,0.03);
+  min-width: 0;
 }
 
-.ctaButton {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--sp-4) var(--sp-8);
-  background: var(--clay);
-  color: #FAF7F2;
-  font-size: var(--text-base);
-  font-weight: 500;
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: background var(--duration-fast) var(--ease-out);
+.said {
+  font-size: var(--text-xl);
+  font-style: italic;
+  line-height: var(--leading-snug);
+  color: var(--ink);
 }
 
-.ctaButton:hover {
-  background: var(--clay-dark);
-}
-
-.visual {
+/* The gap is the protagonist: it's tall when misregistered, and collapses
+   toward a hairline as the section comes into true. */
+.gap {
+  height: calc(0.4rem + (1 - var(--reg)) * 3.4rem);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  transition: height var(--dur-base) var(--ease-true);
+}
+.gapNote {
+  font-family: var(--font-kept);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  /* the annotation fades out once there's no gap left to cross */
+  opacity: calc(1 - var(--reg));
+  transition: opacity var(--dur-base) var(--ease-true);
 }
 
-.decorSvg {
-  color: var(--clay);
-  opacity: 0.22;
-  width: 120px;
-  height: 200px;
+.kept {
+  font-size: var(--text-base);
+  margin-top: var(--sp-3);
+  white-space: nowrap;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 @media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .visual {
-    display: none;
-  }
-
-  .hero {
-    min-height: 80vh;
-  }
+  .grid { grid-template-columns: 1fr; gap: var(--sp-12); }
+  .hero { min-height: auto; padding-block: var(--sp-20); }
+  .pair { padding: var(--sp-8); }
 }

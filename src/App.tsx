@@ -1,23 +1,24 @@
 import Nav from './components/Nav';
 import Hero from './components/Hero';
-import Positioning from './components/Positioning';
-import Features from './components/Features';
-import Process from './components/Process';
-import Trust from './components/Trust';
-import ClosingCTA from './components/ClosingCTA';
+import Problem from './components/Problem';
+import Approach from './components/Approach';
+import Capabilities from './components/Capabilities';
+import About from './components/About';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
   return (
     <>
+      <a className="skip-link" href="#main">Skip to content</a>
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
-        <Positioning />
-        <Features />
-        <Process />
-        <Trust />
-        <ClosingCTA />
+        <Problem />
+        <Approach />
+        <Capabilities />
+        <About />
+        <Contact />
       </main>
       <Footer />
     </>

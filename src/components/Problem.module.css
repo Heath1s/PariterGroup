@@ -1,65 +1,65 @@
 .problem {
-  background: var(--c-ink);
-  padding-top: var(--sp-32);
-  padding-bottom: var(--sp-32);
+  background: var(--paper-kept);
+  padding-block: var(--sp-40);
+  border-top: 1px solid var(--rule-faint);
 }
 
-.inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--sp-24);
-  align-items: start;
-}
-
-.left {
-  position: sticky;
-  top: 88px;
-}
-
-.inner :global(.section-label) {
-  color: rgba(255,255,255,0.4);
-  margin-bottom: var(--sp-6);
-}
+.inner { max-width: 54rem; }
 
 .heading {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
-  font-weight: var(--weight-regular);
+  font-size: clamp(var(--text-3xl), 4.2vw, var(--text-5xl));
   font-style: italic;
-  color: #fff;
-  letter-spacing: -0.025em;
-  line-height: var(--leading-tight);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-block: var(--sp-5) var(--sp-8);
 }
 
 .body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-6);
-  padding-top: var(--sp-3);
-}
-
-.body p {
   font-size: var(--text-lg);
-  line-height: var(--leading-relaxed);
-  color: rgba(255, 255, 255, 0.6);
+  line-height: var(--leading-loose);
+  color: var(--ink-muted);
+  max-width: var(--measure);
 }
 
-.body p:last-child {
-  font-family: var(--font-display);
+/* The gap, named and measured. Widest separation on the page. */
+.gapBlock { margin-block: var(--sp-16); }
+
+.gapSaid {
+  display: block;
   font-style: italic;
   font-size: var(--text-xl);
-  color: rgba(255, 255, 255, 0.35);
-  margin-top: var(--sp-2);
+  color: var(--ink);
 }
 
-@media (max-width: 860px) {
-  .inner {
-    grid-template-columns: 1fr;
-    gap: var(--sp-10);
-  }
-  .left { position: static; }
-  .problem {
-    padding-top: var(--sp-20);
-    padding-bottom: var(--sp-20);
-  }
+.gapField {
+  /* the page's widest gap; collapses as the section comes into true */
+  height: calc(1rem + (1 - var(--reg)) * 5rem);
+  display: flex;
+  align-items: center;
+  transition: height var(--dur-base) var(--ease-true);
+}
+.gapNote {
+  font-family: var(--font-kept);
+  font-size: var(--text-sm);
+  color: var(--ink-faint);
+  opacity: calc(1 - var(--reg) * 0.85);
+  transition: opacity var(--dur-base) var(--ease-true);
+}
+
+.gapKept {
+  display: block;
+  margin-top: var(--sp-3);
+  font-size: var(--text-lg);
+  letter-spacing: 0.02em;
+}
+
+.close {
+  font-size: var(--text-2xl);
+  font-style: italic;
+  color: var(--ink);
+  max-width: 30rem;
+}
+
+@media (max-width: 760px) {
+  .problem { padding-block: var(--sp-24); }
 }
