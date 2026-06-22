@@ -1,0 +1,61 @@
+/* The vault — security set in the iron-ink ground. */
+.trust {
+  background: var(--paper-deep);
+  color: var(--ink-on-deep);
+  padding-block: var(--sp-32);
+}
+
+.head { max-width: 46rem; margin-bottom: var(--sp-16); }
+
+.heading {
+  font-size: clamp(var(--text-3xl), 3.6vw, var(--text-5xl));
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink-on-deep);
+  margin-block: var(--sp-4) var(--sp-5);
+}
+
+.sub {
+  font-size: var(--text-lg);
+  color: var(--ink-on-deep-muted);
+  line-height: var(--leading-body);
+  max-width: var(--measure);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-12) var(--sp-8);
+}
+
+.tick {
+  display: block;
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  color: var(--rule);
+  opacity: 1;
+  margin-bottom: var(--sp-3);
+}
+
+.title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  color: var(--ink-on-deep);
+  margin-bottom: var(--sp-3);
+}
+
+.body {
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  color: var(--ink-on-deep-muted);
+}
+
+@media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+@media (max-width: 640px) {
+  .trust { padding-block: var(--sp-24); }
+  .grid { grid-template-columns: 1fr; gap: var(--sp-10); }
+}

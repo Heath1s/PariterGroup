@@ -28,6 +28,7 @@ export default function Nav() {
           <ul className={styles.links}>
             <li><a href="#approach" className={styles.link}>Approach</a></li>
             <li><a href="#capabilities" className={styles.link}>What We Do</a></li>
+            <li><a href="#security" className={styles.link}>Security</a></li>
             <li><a href="#about" className={styles.link}>About</a></li>
           </ul>
         </nav>
@@ -51,6 +52,7 @@ export default function Nav() {
           <ul>
             <li><a href="#approach" className={styles.mLink} onClick={close}>Approach</a></li>
             <li><a href="#capabilities" className={styles.mLink} onClick={close}>What We Do</a></li>
+            <li><a href="#security" className={styles.mLink} onClick={close}>Security</a></li>
             <li><a href="#about" className={styles.mLink} onClick={close}>About</a></li>
             <li><a href="#contact" className={`btn ${styles.mCta}`} onClick={close}>Start with an audit</a></li>
           </ul>
