@@ -4,13 +4,13 @@ import styles from './Approach.module.css';
 const steps = [
   {
     n: '01',
-    title: 'We find the waste.',
-    body: 'A paid audit goes deep into where your team\'s time actually goes. You get a clear, plain-English picture of what\'s being lost each week — and what it costs you over a year.',
+    title: 'We map where the time goes.',
+    body: 'A deep audit across your tools and inboxes. You get a plain-English analysis — where your team\'s hours actually go, what\'s repetitive, what\'s automatable, and what it costs you over a year. Yours to keep, whether or not we ever work together.',
   },
   {
     n: '02',
-    title: 'We eliminate it.',
-    body: 'We bring your tools into one record, so what\'s said reaches what\'s kept without a person in between. If you move forward, the audit fee is credited toward the work.',
+    title: 'We turn the map into action.',
+    body: 'Those same findings become the blueprint: we bring your tools into one record, then start taking the repetitive work off your plate — you approving every step. If you move forward, the audit fee is credited toward the work.',
   },
   {
     n: '03',
