@@ -1,0 +1,15 @@
+{
+  "eyebrow": "The problem",
+  "heading": "Your business keeps its truth in two places.",
+  "body": "What gets said lives in email, texts, and the call you took this morning. What gets kept lives in the books. Between them stands a person — retyping Tuesday's order into Thursday's ledger, copying figures from one screen to another, chasing the line that never made it across.",
+  "docket": {
+    "code": "ORD-2044",
+    "kind": "Order confirmation",
+    "said": "Shipped Tuesday — invoice to follow.",
+    "stamp": "Held",
+    "note": "Waiting on someone to type it into the books."
+  },
+  "count": "+3 waiting",
+  "stopLabel": "a person re-keys it here",
+  "close": "It shouldn't be a person's job to be the bridge."
+}

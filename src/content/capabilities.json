@@ -1,0 +1,50 @@
+{
+  "eyebrow": "What we do",
+  "heading": "We bring your business into one record — then put it to work",
+  "sub": "First, everything your business knows — orders, emails, invoices, inventory — comes into one place. Then we learn how it actually runs. Then the repetitive work starts handling itself, with you approving every step.",
+  "items": [
+    {
+      "tick": "one record",
+      "title": "One source of truth",
+      "body": "Orders, invoices, and inventory live in one place. No one spends the morning moving numbers between screens."
+    },
+    {
+      "tick": "said → kept, same day",
+      "title": "The relay, gone",
+      "body": "What's said reaches what's kept on its own. Tuesday's order is in the books on Tuesday — not whenever someone gets to it."
+    },
+    {
+      "tick": "entered once",
+      "title": "Fewer errors, less chasing",
+      "body": "When a figure isn't retyped, it isn't mistyped. The detail that used to fall through the cracks simply arrives."
+    },
+    {
+      "tick": "one plan",
+      "title": "Scheduling that lines up",
+      "body": "Dispatch, the field crew, and the office all work from the same record — so the day runs on one plan, not three."
+    }
+  ],
+  "vision": {
+    "eyebrow": "Where this goes",
+    "heading": "A business that understands itself.",
+    "body": "Email and your system of record are only the start. Over time you connect the rest — every tool your business runs on — and we bring them into one understanding of how your business actually works, end to end. The more scattered your systems are today, the more there is to gain. On that understanding, AI agents take on the repetitive work — drafting the follow-up, updating the order, chasing the line that didn't cross. They begin by watching and suggesting; you approve every action; they earn more only as they prove themselves.",
+    "pull": "Not software you operate. A coworker that learns your business."
+  },
+  "alternatives": {
+    "eyebrow": "Why pariter, not the alternatives",
+    "items": [
+      {
+        "tick": "not another hire",
+        "body": "Another hire adds a person to the gap. We close it — the work stops being handwork, instead of getting faster hands."
+      },
+      {
+        "tick": "not generic AI",
+        "body": "ChatGPT and Copilot start from zero every conversation. pariter learns your business once — your customers, your products, your way of working — and remembers."
+      },
+      {
+        "tick": "not a new system",
+        "body": "No rip-and-replace, no year-long rollout. We sit on top of the tools you already run. Nothing to migrate; you keep what works."
+      }
+    ]
+  }
+}

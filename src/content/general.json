@@ -1,0 +1,15 @@
+{
+  "navLinks": [
+    { "label": "Approach", "href": "#approach" },
+    { "label": "What We Do", "href": "#capabilities" },
+    { "label": "Stories", "href": "#proof" },
+    { "label": "About", "href": "#about" },
+    { "label": "Security", "href": "#security" }
+  ],
+  "navCta": "Start with an audit",
+  "footerTagline": "Side by side, at your pace.",
+  "footerEmail": "hello@paritergroup.com",
+  "footerLegal1": "© 2026 Pariter Group",
+  "footerLegal2": "All rights reserved.",
+  "footerBottom": "Established businesses, freed from busywork."
+}

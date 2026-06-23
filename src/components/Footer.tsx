@@ -1,3 +1,4 @@
+import general from '../content/general.json';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -12,33 +13,32 @@ export default function Footer() {
               <span className={styles.markSaid}>Pariter</span>
               <span className={styles.markGroup}>&nbsp;Group</span>
             </a>
-            <p className={styles.tagline}>Side by side, at your pace.</p>
+            <p className={styles.tagline}>{general.footerTagline}</p>
           </div>
 
           <nav className={styles.col} aria-label="Footer navigation">
             <p className={styles.colHead}>Navigation</p>
             <ul>
-              <li><a href="#approach" className={styles.link}>Approach</a></li>
-              <li><a href="#capabilities" className={styles.link}>What We Do</a></li>
-              <li><a href="#about" className={styles.link}>About</a></li>
-              <li><a href="#contact" className={styles.link}>Start with an audit</a></li>
+              {general.navLinks.map((l) => (
+                <li key={l.href}><a href={l.href} className={styles.link}>{l.label}</a></li>
+              ))}
             </ul>
           </nav>
 
           <div className={styles.col}>
             <p className={styles.colHead}>Contact</p>
-            <a href="mailto:hello@paritergroup.com" className={styles.link}>hello@paritergroup.com</a>
+            <a href={`mailto:${general.footerEmail}`} className={styles.link}>{general.footerEmail}</a>
           </div>
 
           <div className={styles.col}>
             <p className={styles.colHead}>Legal</p>
-            <p className={styles.legal}>© 2026 Pariter Group</p>
-            <p className={styles.legal}>All rights reserved.</p>
+            <p className={styles.legal}>{general.footerLegal1}</p>
+            <p className={styles.legal}>{general.footerLegal2}</p>
           </div>
         </div>
 
         <div className={styles.bottom}>
-          <p className={styles.bottomCopy}>Established businesses, freed from busywork.</p>
+          <p className={styles.bottomCopy}>{general.footerBottom}</p>
         </div>
       </div>
     </footer>

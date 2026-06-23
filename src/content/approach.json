@@ -1,0 +1,22 @@
+{
+  "eyebrow": "How it works",
+  "heading": "A journey we take together",
+  "sub": "We don't hand you a system and walk away. Three stops — and you set the pace throughout.",
+  "steps": [
+    {
+      "n": "01",
+      "title": "We map where the time goes.",
+      "body": "A deep audit across your tools and inboxes. You get a plain-English analysis — where your team's hours actually go, what's repetitive, what's automatable, and what it costs you over a year. Yours to keep, whether or not we ever work together."
+    },
+    {
+      "n": "02",
+      "title": "We turn the map into action.",
+      "body": "Those same findings become the blueprint: we bring your tools into one record, then start taking the repetitive work off your plate — you approving every step. If you move forward, the audit fee is credited toward the work."
+    },
+    {
+      "n": "03",
+      "title": "We grow with you.",
+      "body": "We stay on as a partner, not a vendor. As trust builds we take on more, and the business keeps getting leaner — side by side, at the pace you set."
+    }
+  ]
+}

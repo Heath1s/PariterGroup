@@ -1,0 +1,21 @@
+{
+  "closeEyebrow": "End of day",
+  "closeHeading": "The day reconciles itself.",
+  "docket": {
+    "code": "EOD-2041",
+    "kind": "Day ledger",
+    "said": "Everything said today reached the books today.",
+    "rows": [
+      { "label": "Orders cleared", "value": "47" },
+      { "label": "Re-keyed by hand", "value": "0" },
+      { "label": "Hours given back", "value": "≈ 2.5 / person" }
+    ],
+    "stamp": "Reconciled",
+    "note": "06:30 opened · 18:00 closed"
+  },
+  "closePull": "Side by side, at the pace you set.",
+  "introEyebrow": "Start with an audit",
+  "introHeading": "The right first step is a clear picture.",
+  "introBody": "A paid engagement — a close look at where your team's time goes and what it costs. No commitment beyond that. An honest picture of your business, in plain English.",
+  "email": "hello@paritergroup.com"
+}

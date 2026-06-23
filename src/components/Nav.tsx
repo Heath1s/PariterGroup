@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import general from '../content/general.json';
 import styles from './Nav.module.css';
 
 export default function Nav() {
@@ -26,15 +27,13 @@ export default function Nav() {
 
         <nav className={styles.center} aria-label="Primary">
           <ul className={styles.links}>
-            <li><a href="#approach" className={styles.link}>Approach</a></li>
-            <li><a href="#capabilities" className={styles.link}>What We Do</a></li>
-            <li><a href="#proof" className={styles.link}>Stories</a></li>
-            <li><a href="#about" className={styles.link}>About</a></li>
-            <li><a href="#security" className={styles.link}>Security</a></li>
+            {general.navLinks.map((l) => (
+              <li key={l.href}><a href={l.href} className={styles.link}>{l.label}</a></li>
+            ))}
           </ul>
         </nav>
 
-        <a href="#contact" className={`btn ${styles.cta}`}>Start with an audit</a>
+        <a href="#contact" className={`btn ${styles.cta}`}>{general.navCta}</a>
 
         <button
           className={styles.burger}
@@ -51,12 +50,14 @@ export default function Nav() {
       {open && (
         <div className={styles.mobile}>
           <ul>
-            <li><a href="#approach" className={styles.mLink} onClick={close}>Approach</a></li>
-            <li><a href="#capabilities" className={styles.mLink} onClick={close}>What We Do</a></li>
-            <li><a href="#proof" className={styles.mLink} onClick={close}>Stories</a></li>
-            <li><a href="#about" className={styles.mLink} onClick={close}>About</a></li>
-            <li><a href="#security" className={styles.mLink} onClick={close}>Security</a></li>
-            <li><a href="#contact" className={`btn ${styles.mCta}`} onClick={close}>Start with an audit</a></li>
+            {general.navLinks.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className={styles.mLink} onClick={close}>{l.label}</a>
+              </li>
+            ))}
+            <li>
+              <a href="#contact" className={`btn ${styles.mCta}`} onClick={close}>{general.navCta}</a>
+            </li>
           </ul>
         </div>
       )}

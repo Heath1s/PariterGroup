@@ -1,6 +1,7 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
 import { useEnter } from '../hooks/useScrollMotion';
 import Docket from './Docket';
+import contact from '../content/contact.json';
 import styles from './Contact.module.css';
 
 type Fields = { name: string; company: string; email: string; message: string };
@@ -39,42 +40,22 @@ export default function Contact() {
         {/* The close: the working day reconciles itself — the mirror of the
             morning order that cleared at the top of the page. */}
         <div className={styles.close}>
-          <p className="eyebrow">End of day</p>
-          <h2 className={`said ${styles.closeHeading} rise`}>The day reconciles itself.</h2>
+          <p className="eyebrow">{contact.closeEyebrow}</p>
+          <h2 className={`said ${styles.closeHeading} rise`}>{contact.closeHeading}</h2>
           <div className={`${styles.summaryWrap} rise`}>
-            <Docket
-              code="EOD-2041"
-              kind="Day ledger"
-              said="Everything said today reached the books today."
-              rows={[
-                { label: 'Orders cleared', value: '47' },
-                { label: 'Re-keyed by hand', value: '0' },
-                { label: 'Hours given back', value: '≈ 2.5 / person' },
-              ]}
-              stamp="Reconciled"
-              note="06:30 opened · 18:00 closed"
-              animateStamp
-            />
+            <Docket {...contact.docket} animateStamp />
           </div>
-          <p className={`said ${styles.closePull}`}>Side by side, at the pace you set.</p>
+          <p className={`said ${styles.closePull}`}>{contact.closePull}</p>
         </div>
 
         <div className={styles.grid}>
           <div className={styles.intro}>
-            <p className="eyebrow">Start with an audit</p>
-            <h2 id="contact-h" className={`said ${styles.heading}`}>
-              The right first step is a clear picture.
-            </h2>
-            <p className={styles.body}>
-              A paid engagement — a close look at where your team's time goes and what it
-              costs. No commitment beyond that. An honest picture of your business, in
-              plain English.
-            </p>
+            <p className="eyebrow">{contact.introEyebrow}</p>
+            <h2 id="contact-h" className={`said ${styles.heading}`}>{contact.introHeading}</h2>
+            <p className={styles.body}>{contact.introBody}</p>
             <p className={styles.fallback}>
               Or reach us at{' '}
-              <a href="mailto:hello@paritergroup.com" className={styles.email}>
-                hello@paritergroup.com
-              </a>
+              <a href={`mailto:${contact.email}`} className={styles.email}>{contact.email}</a>
             </p>
           </div>
 

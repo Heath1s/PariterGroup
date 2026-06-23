@@ -1,0 +1,14 @@
+# Netlify build + hosting for Pariter Group.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Single-page fallback. Real files (the built assets, /admin/, /admin/config.yml)
+# take precedence, so this only catches unknown paths.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
