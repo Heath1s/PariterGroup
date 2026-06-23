@@ -5,6 +5,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  # The site build doesn't need Playwright's browsers; skip the slow download.
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1"
 
 # Single-page fallback. Real files (the built assets, /admin/, /admin/config.yml)
 # take precedence, so this only catches unknown paths.
