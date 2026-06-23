@@ -2,7 +2,7 @@ import styles from './Footer.module.css';
 
 export default function Footer() {
   return (
-    <footer className={styles.footer} role="contentinfo">
+    <footer className={styles.footer} role="contentinfo" data-ground="dark">
       <div className="container">
         <div className={styles.rule} aria-hidden="true" />
 

@@ -1,4 +1,4 @@
-import { useRegistration } from '../hooks/useRegistration';
+import { useEnter } from '../hooks/useScrollMotion';
 import styles from './Approach.module.css';
 
 const steps = [
@@ -20,27 +20,28 @@ const steps = [
 ];
 
 export default function Approach() {
-  const ref = useRegistration<HTMLElement>();
+  const ref = useEnter<HTMLElement>();
 
   return (
     <section id="approach" ref={ref} className={styles.approach} aria-labelledby="approach-h">
       <div className="container">
         <header className={styles.head}>
           <p className="eyebrow">How it works</p>
-          <h2 id="approach-h" className={`said ${styles.heading}`}>
+          <h2 id="approach-h" className={`said ${styles.heading} rise`}>
             A journey we take together
           </h2>
-          <p className={styles.sub}>
-            We don't hand you a system and walk away. Three steps — and you set the pace
+          <p className={`${styles.sub} rise`}>
+            We don't hand you a system and walk away. Three stops — and you set the pace
             throughout.
           </p>
         </header>
 
-        <ol className={styles.steps}>
+        <ol className={styles.route}>
           {steps.map((s) => (
-            <li key={s.n} className={styles.step}>
-              <span className={`kept ${styles.num}`} aria-hidden="true">{s.n}</span>
-              <div className="rule" aria-hidden="true" />
+            <li key={s.n} className={`${styles.stop} rise`}>
+              <div className={styles.node}>
+                <span className={`kept ${styles.num}`}>{s.n}</span>
+              </div>
               <h3 className={`said ${styles.title}`}>{s.title}</h3>
               <p className={styles.body}>{s.body}</p>
             </li>

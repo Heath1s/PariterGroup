@@ -1,28 +1,49 @@
-/* Pariter Group — "Into True" design tokens
-   Every color has a job in the metaphor: paper, ink, ruling, binding. */
+/* ───────────────────────────────────────────────────────────────────────────
+   Pariter Group — "The Day's Run" design tokens
+
+   One continuous line runs the page: the ledger rule, the delivery route, the
+   conveyor. Work travels it and is handled; a clock counts the working day.
+   The materials are paper, ink, ledger ruling, and the oxblood binding/stamp.
+   ─────────────────────────────────────────────────────────────────────────── */
 :root {
-  /* ── Papers (the two registers get two grounds) ── */
-  --paper-said: #F3EBDD;   /* warm letter-stock — what's said */
-  --paper-kept: #EAE6DC;   /* cooler ledger-stock — what's kept */
-  --paper-deep: #211C17;   /* iron-ink ground for dark bands */
+  /* ── Papers ──────────────────────────────────────────────────────────────
+     Manila ground for the day's light; a cooler ledger band; a crisp document
+     stock so the dockets read like real typed paper; the deep iron ground. */
+  --paper-said:  #F4ECDD;   /* Manila — primary warm ground */
+  --paper-kept:  #ECE5D6;   /* Ledger — cooler secondary band */
+  --document:    #FCF8F0;   /* Document — crisp near-white docket stock */
+  --paper-deep:  #1E1915;   /* Iron — deep ground for dark bands */
 
   /* ── Ink ── */
-  --ink:        #211C17;   /* warm near-black, iron-gall */
-  --ink-muted:  #6F6453;   /* secondary */
-  --ink-faint:  #9A8E79;   /* tertiary / captions */
-  --ink-on-deep: #EDE5D6;  /* text on the deep ground */
-  --ink-on-deep-muted: rgba(237, 229, 214, 0.58);
+  --ink:         #201B16;   /* warm near-black, iron-gall */
+  --ink-muted:   #6C6150;   /* secondary */
+  --ink-faint:   #9C8F79;   /* tertiary / captions */
+  --ink-on-deep: #ECE4D5;
+  --ink-on-deep-muted: rgba(236, 228, 213, 0.60);
+  --ink-on-deep-faint: rgba(236, 228, 213, 0.34);
 
-  /* ── Ruling & binding (the red line of the books) ── */
-  --rule:       #B0543A;   /* sanguine ledger ruling */
-  --rule-faint: rgba(176, 84, 58, 0.28);
-  --binding:    #7A2E22;   /* oxblood — keyline + primary CTA */
-  --binding-dark: #5E2017;
+  /* ── The line, the ruling, the binding ──────────────────────────────────
+     Sanguine is THE line — route, rule, conveyor. Oxblood is the binding:
+     the stamp, the primary action, the weight. */
+  --sanguine:    #B0543A;
+  --oxblood:     #7A2E22;
+  --oxblood-dark:#5C1F16;
+  --rule:        var(--sanguine);
+  --rule-faint:  rgba(176, 84, 58, 0.24);
+  --binding:     var(--oxblood);
+  --binding-dark:var(--oxblood-dark);
 
-  /* ── Type ── */
-  --font-said: 'Fraunces', Georgia, serif;       /* communication voice */
-  --font-page: 'Hanken Grotesk', system-ui, sans-serif; /* page & UI */
-  --font-kept: 'IBM Plex Mono', ui-monospace, monospace; /* the ledger voice */
+  /* neutral hairline for crisp document edges */
+  --hair:        rgba(32, 27, 22, 0.10);
+  --hair-soft:   rgba(32, 27, 22, 0.06);
+  --hair-deep:   rgba(236, 228, 213, 0.14);
+
+  /* ── Type ────────────────────────────────────────────────────────────────
+     A deliberate trio: a characterful optical serif (the voice), a warm
+     humanist grotesque (the page), and a mono ledger face (the documents). */
+  --font-said: 'Fraunces', 'Hoefler Text', Georgia, serif;       /* the voice */
+  --font-page: 'Hanken Grotesk', system-ui, -apple-system, sans-serif; /* the page */
+  --font-kept: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;   /* the ledger */
 
   --text-xs:   0.75rem;
   --text-sm:   0.8125rem;
@@ -34,11 +55,15 @@
   --text-4xl:  3rem;
   --text-5xl:  3.875rem;
   --text-6xl:  5.25rem;
+  --text-7xl:  6.75rem;
 
-  --leading-tight:   1.08;
-  --leading-snug:    1.28;
-  --leading-body:    1.68;
-  --leading-loose:   1.85;
+  --leading-tight: 1.06;
+  --leading-snug:  1.26;
+  --leading-body:  1.66;
+  --leading-loose: 1.85;
+
+  --tracking-tight: -0.022em;
+  --tracking-wide:  0.16em;
 
   /* ── Spacing ── */
   --sp-1:  0.25rem; --sp-2: 0.5rem;  --sp-3: 0.75rem; --sp-4: 1rem;
@@ -47,19 +72,46 @@
   --sp-32: 8rem;    --sp-40: 10rem;  --sp-48: 12rem;
 
   /* ── Layout ── */
-  --max-w: 1180px;
-  --measure: 64ch;
+  --max-w:   1160px;
+  --measure: 62ch;
+  --rail-w:  clamp(56px, 7vw, 104px);  /* left gutter the spine lives in */
 
   /* ── Radius ── */
   --radius-sm: 5px;
-  --radius-md: 9px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 
-  /* ── Motion: slow, eased-out, never springy ── */
-  --ease-true: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-fast: 200ms;
-  --dur-base: 320ms;
+  /* ── Elevation — crisp, layered, low-spread ── */
+  --shadow-1: 0 1px 1px rgba(32, 27, 22, 0.03), 0 2px 6px rgba(32, 27, 22, 0.04);
+  --shadow-2:
+    0 1px 1px rgba(32, 27, 22, 0.04),
+    0 6px 16px -8px rgba(32, 27, 22, 0.14),
+    0 18px 44px -22px rgba(32, 27, 22, 0.20);
+  --shadow-stamp: 0 1px 0 rgba(122, 46, 34, 0.18);
 
-  /* registration default — JS lowers this on scroll when motion is allowed.
-     If JS never runs, every section renders already in true. */
-  --reg: 1;
+  /* ── Motion character ───────────────────────────────────────────────────
+     Operator-calm. Settle is the primary curve; impact is the stamp's
+     downstroke. Scroll-linked transforms carry no transition; only discrete
+     state changes (hover, stamp, menu) animate. */
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-impact: cubic-bezier(0.5, 0, 0.18, 1);
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+
+  --dur-1: 160ms;
+  --dur-2: 300ms;
+  --dur-3: 520ms;
+  --dur-4: 820ms;
+
+  /* legacy aliases (kept so nothing silently breaks) */
+  --ease-true: var(--ease-settle);
+  --dur-fast: var(--dur-1);
+  --dur-base: var(--dur-2);
+
+  /* ── Scroll-linked state ──────────────────────────────────────────────────
+     --enter : per-section settle, 0 (arriving) → 1 (settled). Set on each
+               <section> by the engine; children inherit it. Defaults to 1 so
+               that with no JS / reduced motion every section renders finished.
+     --day   : global working-day progress 0 → 1, set on :root by the rail. */
+  --enter: 1;
+  --day: 0;
 }

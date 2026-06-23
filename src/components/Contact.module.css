@@ -1,50 +1,45 @@
 .contact {
   background:
-    radial-gradient(ellipse 120% 90% at 50% 0%, rgba(176,84,58,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(176, 84, 58, 0.07) 0%, transparent 58%),
     var(--paper-said);
   padding-block: var(--sp-32);
   border-top: 1px solid var(--rule-faint);
 }
 
-/* ── Arrival: the protagonist sentence lands on one rule ── */
-.arrival {
-  position: relative;
-  max-width: 40rem;
+/* ── The close ─────────────────────────────────────────────────────────────── */
+.close {
+  max-width: 32rem;
   margin: 0 auto var(--sp-32);
-  padding-left: var(--sp-8);
-  text-align: left;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-/* the binding keyline — drawn full-height only as the page comes into true */
-.binding {
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: var(--binding);
-  transform: scaleY(var(--reg));
-  transform-origin: top center;
-  transition: transform var(--dur-base) var(--ease-true);
-}
-.arrivalSaid {
-  font-size: clamp(var(--text-3xl), 4.4vw, var(--text-5xl));
+.closeHeading {
+  font-size: clamp(var(--text-3xl), 4.2vw, var(--text-5xl));
   font-style: italic;
   font-weight: 500;
   letter-spacing: -0.02em;
-  line-height: var(--leading-tight);
-  color: var(--ink);
+  margin-block: var(--sp-4) var(--sp-10);
 }
-.arrivalKept {
-  font-size: clamp(var(--text-xl), 2.6vw, var(--text-3xl));
-  margin-top: var(--sp-3);
+.summaryWrap { width: 100%; max-width: 26rem; text-align: left; }
+.closePull {
+  font-size: var(--text-xl);
+  font-style: italic;
   color: var(--ink-muted);
+  margin-top: var(--sp-10);
 }
 
+/* ── Audit intro + form ────────────────────────────────────────────────────── */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--sp-20);
   align-items: start;
+  padding-top: var(--sp-20);
+  border-top: 1px solid var(--rule-faint);
 }
-.intro { position: sticky; top: 90px; }
+.intro { position: sticky; top: 6rem; }
 
 .heading {
   font-size: clamp(var(--text-2xl), 3.2vw, var(--text-4xl));
@@ -53,14 +48,11 @@
   letter-spacing: -0.02em;
   margin-block: var(--sp-4) var(--sp-5);
 }
-
 .body { font-size: var(--text-base); line-height: var(--leading-body); color: var(--ink-muted); }
-
 .fallback { margin-top: var(--sp-8); font-size: var(--text-base); color: var(--ink-muted); }
-.email { color: var(--binding); text-decoration: underline; text-underline-offset: 3px; }
-.email:hover { color: var(--binding-dark); }
+.email { color: var(--oxblood); text-decoration: underline; text-underline-offset: 3px; }
+.email:hover { color: var(--oxblood-dark); }
 
-/* ── Form ── */
 .form { display: flex; flex-direction: column; gap: var(--sp-5); }
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
 .field { display: flex; flex-direction: column; gap: var(--sp-2); }
@@ -69,31 +61,30 @@
 
 .input, .textarea {
   width: 100%;
-  padding: var(--sp-3) var(--sp-4);
-  background: var(--paper-said);
-  border: 1px solid var(--rule-faint);
+  padding: 0.7rem 0.85rem;
+  background: var(--document);
+  border: 1px solid var(--hair);
   border-radius: var(--radius-sm);
   font-size: var(--text-base);
   color: var(--ink);
-  transition: border-color var(--dur-fast) var(--ease-true),
-              box-shadow var(--dur-fast) var(--ease-true);
+  transition: border-color var(--dur-1) var(--ease-out),
+              box-shadow var(--dur-1) var(--ease-out);
 }
 .input::placeholder, .textarea::placeholder { color: var(--ink-faint); }
 .input:focus, .textarea:focus {
   outline: none;
-  border-color: var(--binding);
-  box-shadow: 0 0 0 3px rgba(122,46,34,0.12);
+  border-color: var(--oxblood);
+  box-shadow: 0 0 0 3px rgba(122, 46, 34, 0.12);
 }
-.invalid { border-color: #B0543A; }
+.invalid { border-color: var(--sanguine); }
 .textarea { resize: vertical; min-height: 7rem; }
-.err { font-size: var(--text-sm); color: var(--binding-dark); }
+.err { font-size: var(--text-sm); color: var(--oxblood-dark); }
 .submit { align-self: flex-start; margin-top: var(--sp-2); }
 
-/* ── Success ── */
 .success { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-4); padding-top: var(--sp-4); }
 .check {
   width: 46px; height: 46px; border-radius: 50%;
-  background: var(--binding); color: var(--paper-said);
+  background: var(--oxblood); color: #FCF6EC;
   display: flex; align-items: center; justify-content: center;
   font-size: var(--text-xl); font-weight: 600;
 }
@@ -101,8 +92,8 @@
 
 @media (max-width: 860px) {
   .contact { padding-block: var(--sp-24); }
-  .arrival { margin-bottom: var(--sp-20); }
-  .grid { grid-template-columns: 1fr; gap: var(--sp-12); }
+  .close { margin-bottom: var(--sp-20); }
+  .grid { grid-template-columns: 1fr; gap: var(--sp-12); padding-top: var(--sp-16); }
   .intro { position: static; }
 }
 @media (max-width: 520px) {

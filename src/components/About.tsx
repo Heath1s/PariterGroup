@@ -1,15 +1,15 @@
-import { useRegistration } from '../hooks/useRegistration';
+import { useEnter } from '../hooks/useScrollMotion';
 import styles from './About.module.css';
 
 export default function About() {
-  const ref = useRegistration<HTMLElement>();
+  const ref = useEnter<HTMLElement>();
 
   return (
     <section id="about" ref={ref} className={styles.about} aria-labelledby="about-h">
       <div className={`container ${styles.grid}`}>
         <div className={styles.name}>
           <p className="eyebrow">About</p>
-          <h2 id="about-h" className={`said ${styles.heading}`}>
+          <h2 id="about-h" className={`said ${styles.heading} rise`}>
             The name is the promise.
           </h2>
           <p className={styles.body}>

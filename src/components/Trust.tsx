@@ -1,4 +1,4 @@
-import { useRegistration } from '../hooks/useRegistration';
+import { useEnter } from '../hooks/useScrollMotion';
 import styles from './Trust.module.css';
 
 // Grounded in the real IT security posture (read-only Microsoft admin-consent integration).
@@ -36,14 +36,14 @@ const points = [
 ];
 
 export default function Trust() {
-  const ref = useRegistration<HTMLElement>();
+  const ref = useEnter<HTMLElement>();
 
   return (
-    <section id="security" ref={ref} className={styles.trust} aria-labelledby="trust-h">
+    <section id="security" ref={ref} data-ground="dark" className={styles.trust} aria-labelledby="trust-h">
       <div className="container">
         <header className={styles.head}>
           <p className="eyebrow">Security</p>
-          <h2 id="trust-h" className={`said ${styles.heading}`}>
+          <h2 id="trust-h" className={`said ${styles.heading} rise`}>
             We treat your business like it's ours to protect.
           </h2>
           <p className={styles.sub}>

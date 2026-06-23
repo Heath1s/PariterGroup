@@ -1,31 +1,33 @@
 .hero {
+  position: relative;
   background:
-    radial-gradient(ellipse 90% 70% at 12% 50%, rgba(176,84,58,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 8% 42%, rgba(176, 84, 58, 0.08) 0%, transparent 62%),
+    radial-gradient(ellipse 70% 50% at 92% 88%, rgba(122, 46, 34, 0.05) 0%, transparent 60%),
     var(--paper-said);
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding-block: var(--sp-24);
+  padding-block: var(--sp-24) var(--sp-20);
+  overflow: hidden;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.04fr 0.96fr;
   gap: var(--sp-20);
   align-items: center;
   width: 100%;
 }
 
 .lead { max-width: 38rem; min-width: 0; }
-
 .eyebrow { display: block; margin-bottom: var(--sp-6); }
 
 .headline {
-  font-size: clamp(var(--text-4xl), 5.4vw, var(--text-6xl));
+  font-size: clamp(var(--text-4xl), 5.8vw, var(--text-6xl));
   font-weight: 500;
   font-style: italic;
-  letter-spacing: -0.022em;
-  line-height: var(--leading-tight);
+  letter-spacing: -0.025em;
+  line-height: 1.02;
   margin-bottom: var(--sp-6);
 }
 
@@ -37,53 +39,54 @@
   margin-bottom: var(--sp-10);
 }
 
-.actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-5); }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-6); }
 
-/* ── The said / kept pair ── */
-.pair {
-  background: var(--paper-kept);
-  border: 1px solid var(--rule-faint);
+/* ── The docket, placed on the desk with a faint second behind it ── */
+.stack { position: relative; min-width: 0; }
+
+.ghost {
+  position: absolute;
+  inset: 0;
+  transform: translate(14px, 18px) rotate(2.2deg);
+  background: var(--document);
+  border: 1px solid var(--hair);
   border-radius: var(--radius-md);
-  padding: var(--sp-10);
-  box-shadow: 0 1px 0 rgba(33,28,23,0.03);
-  min-width: 0;
+  box-shadow: var(--shadow-1);
+  opacity: 0.55;
 }
 
-.said {
-  font-size: var(--text-xl);
-  font-style: italic;
-  line-height: var(--leading-snug);
-  color: var(--ink);
+.docket {
+  position: relative;
+  transform: rotate(-1.1deg);
+  transition: transform var(--dur-3) var(--ease-out), box-shadow var(--dur-3) var(--ease-out);
 }
+.docket:hover { transform: rotate(0deg) translateY(-2px); }
 
-/* The gap is the protagonist: it's tall when misregistered, and collapses
-   toward a hairline as the section comes into true. */
-.gap {
-  height: calc(0.4rem + (1 - var(--reg)) * 3.4rem);
-  display: flex;
-  align-items: center;
-  transition: height var(--dur-base) var(--ease-true);
+/* ── Load-in: a calm, staggered arrival. Collapsed under reduced motion. ── */
+.lead > *,
+.stack {
+  animation: heroIn var(--dur-4) var(--ease-settle) both;
 }
-.gapNote {
-  font-family: var(--font-kept);
-  font-size: var(--text-xs);
-  letter-spacing: 0.04em;
-  color: var(--ink-faint);
-  /* the annotation fades out once there's no gap left to cross */
-  opacity: calc(1 - var(--reg));
-  transition: opacity var(--dur-base) var(--ease-true);
-}
+.lead > *:nth-child(1) { animation-delay: 0.02s; }
+.lead > *:nth-child(2) { animation-delay: 0.10s; }
+.lead > *:nth-child(3) { animation-delay: 0.18s; }
+.lead > *:nth-child(4) { animation-delay: 0.26s; }
+.stack { animation-delay: 0.22s; }
 
-.kept {
-  font-size: var(--text-base);
-  margin-top: var(--sp-3);
-  white-space: nowrap;
-  overflow-x: auto;
-  max-width: 100%;
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+/* the docket keeps its resting tilt once arrived */
+.stack { transform: none; }
 
 @media (max-width: 900px) {
-  .grid { grid-template-columns: 1fr; gap: var(--sp-12); }
-  .hero { min-height: auto; padding-block: var(--sp-20); }
-  .pair { padding: var(--sp-8); }
+  .grid { grid-template-columns: 1fr; gap: var(--sp-16); }
+  .hero { min-height: auto; padding-block: var(--sp-20) var(--sp-16); }
+  .stack { max-width: 30rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .docket { transform: none; }
+  .ghost { display: none; }
 }

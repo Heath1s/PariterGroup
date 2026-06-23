@@ -1,4 +1,4 @@
-import { useRegistration } from '../hooks/useRegistration';
+import { useEnter } from '../hooks/useScrollMotion';
 import styles from './Capabilities.module.css';
 
 const items = [
@@ -25,17 +25,17 @@ const items = [
 ];
 
 export default function Capabilities() {
-  const ref = useRegistration<HTMLElement>();
+  const ref = useEnter<HTMLElement>();
 
   return (
     <section id="capabilities" ref={ref} className={styles.caps} aria-labelledby="caps-h">
       <div className="container">
         <header className={styles.head}>
           <p className="eyebrow">What we do</p>
-          <h2 id="caps-h" className={`said ${styles.heading}`}>
+          <h2 id="caps-h" className={`said ${styles.heading} rise`}>
             We bring your business into one record — then put it to work
           </h2>
-          <p className={styles.sub}>
+          <p className={`${styles.sub} rise`}>
             First, everything your business knows — orders, emails, invoices, inventory —
             comes into one place. Then we learn how it actually runs. Then the repetitive work
             starts handling itself, with you approving every step.
@@ -44,7 +44,7 @@ export default function Capabilities() {
 
         <ul className={styles.grid}>
           {items.map((it) => (
-            <li key={it.title} className={styles.card}>
+            <li key={it.title} className={`${styles.card} rise`}>
               <span className={`kept ${styles.tick}`} aria-hidden="true">✓ {it.tick}</span>
               <div className="rule" aria-hidden="true" />
               <h3 className={`said ${styles.title}`}>{it.title}</h3>
@@ -53,8 +53,7 @@ export default function Capabilities() {
           ))}
         </ul>
 
-        {/* The forward register: what one record makes possible. Present tense above,
-            future tense here — set off by a full rule. */}
+        {/* The forward register: what one record makes possible. */}
         <div className={styles.vision}>
           <p className="eyebrow">Where this goes</p>
           <h3 className={`said ${styles.visionHeading}`}>

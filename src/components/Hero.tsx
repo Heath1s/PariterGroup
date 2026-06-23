@@ -1,12 +1,9 @@
-import { useRegistration } from '../hooks/useRegistration';
+import Docket from './Docket';
 import styles from './Hero.module.css';
 
 export default function Hero() {
-  // The hero begins misregistered at load and settles as you scroll through it.
-  const ref = useRegistration<HTMLElement>({ start: 0, end: -0.7 });
-
   return (
-    <section id="top" ref={ref} className={styles.hero} aria-labelledby="hero-h">
+    <section id="top" className={styles.hero} aria-labelledby="hero-h">
       <div className={`container ${styles.grid}`}>
         <div className={styles.lead}>
           <p className={`eyebrow ${styles.eyebrow}`}>Pariter Group</p>
@@ -19,27 +16,33 @@ export default function Hero() {
             back their hours.
           </p>
           <div className={styles.actions}>
-            <a href="#contact" className="btn">Start with an audit</a>
+            <a href="#contact" className="btn">
+              Start with an audit <span className="arrow" aria-hidden="true">→</span>
+            </a>
             <a href="#approach" className="btn-quiet">
-              See how it works <span aria-hidden="true">↓</span>
+              See how it works <span className="arrow" aria-hidden="true">↓</span>
             </a>
           </div>
         </div>
 
-        {/* The protagonist motif: what's said vs. what's kept, with the gap
-            a person currently crosses by hand. It closes as you scroll. */}
-        <figure className={styles.pair} aria-label="What a business says, and what it keeps">
-          <p className={`said ${styles.said}`}>
-            “Shipped the Henderson order Tuesday — invoice to follow.”
-          </p>
-          <div className={styles.gap} aria-hidden="true">
-            <span className={styles.gapNote}>someone re-keys it</span>
-          </div>
-          <div className="rule" aria-hidden="true" />
-          <p className={`kept ${styles.kept}`}>
-            INV-2041&nbsp;&nbsp;HENDERSON CO.&nbsp;&nbsp;$4,820.00
-          </p>
-        </figure>
+        {/* The first order of the day. It would normally wait for a person to
+            re-key it into the books; here it posts itself and clears. */}
+        <div className={styles.stack}>
+          <div className={styles.ghost} aria-hidden="true" />
+          <Docket
+            className={styles.docket}
+            code="ORD-2041"
+            kind="Order confirmation"
+            said="Shipped the morning order — invoice to follow."
+            rows={[
+              { label: 'Invoiced', value: '$4,820.00' },
+              { label: 'Posted to books', value: '06:41' },
+            ]}
+            stamp="Cleared"
+            note="No one re-typed a thing. The order reached the books on its own."
+            animateStamp
+          />
+        </div>
       </div>
     </section>
   );

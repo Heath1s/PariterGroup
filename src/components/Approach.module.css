@@ -19,24 +19,48 @@
   line-height: var(--leading-body);
 }
 
-.steps {
+/* ── The route: three stops on the line ─────────────────────────────────── */
+.route {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--sp-10);
 }
+/* the line connecting the three nodes */
+.route::before {
+  content: '';
+  position: absolute;
+  top: 1.4rem;
+  left: 16.66%;
+  right: 16.66%;
+  height: 1.5px;
+  background: var(--sanguine);
+  opacity: 0.45;
+}
 
-.step { display: flex; flex-direction: column; }
+.stop { position: relative; display: flex; flex-direction: column; }
 
+.node {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: var(--document);
+  border: 1.5px solid var(--sanguine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-1);
+  margin-bottom: var(--sp-6);
+  position: relative;
+  z-index: 1;
+}
 .num {
   font-size: var(--text-sm);
   font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--rule);
+  letter-spacing: 0.06em;
+  color: var(--oxblood);
   opacity: 1;
-  margin-bottom: var(--sp-4);
 }
-
-.step .rule { margin-bottom: var(--sp-5); }
 
 .title {
   font-size: var(--text-2xl);
@@ -44,6 +68,7 @@
   font-style: normal;
   letter-spacing: -0.01em;
   margin-bottom: var(--sp-4);
+  line-height: var(--leading-snug);
 }
 
 .body {
@@ -54,6 +79,18 @@
 
 @media (max-width: 860px) {
   .approach { padding-block: var(--sp-24); }
-  .head { margin-bottom: var(--sp-12); }
-  .steps { grid-template-columns: 1fr; gap: var(--sp-12); }
+  .head { margin-bottom: var(--sp-16); }
+  .route { grid-template-columns: 1fr; gap: var(--sp-12); padding-left: var(--sp-8); }
+  /* the line runs down the left of the stack */
+  .route::before {
+    top: 1.4rem;
+    bottom: 1.4rem;
+    left: calc(1.4rem - 0.75px);
+    right: auto;
+    width: 1.5px;
+    height: auto;
+  }
+  .stop { padding-left: 4rem; min-height: 2.8rem; }
+  .node { position: absolute; left: 0; top: 0; margin-bottom: 0; }
+  .title { margin-top: 0.2rem; }
 }

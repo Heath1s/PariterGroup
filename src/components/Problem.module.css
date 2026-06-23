@@ -21,36 +21,79 @@
   max-width: var(--measure);
 }
 
-/* The gap, named and measured. Widest separation on the page. */
-.gapBlock { margin-block: var(--sp-16); }
-
-.gapSaid {
-  display: block;
-  font-style: italic;
-  font-size: var(--text-xl);
-  color: var(--ink);
-}
-
-.gapField {
-  /* the page's widest gap; collapses as the section comes into true */
-  height: calc(1rem + (1 - var(--reg)) * 5rem);
+/* ── The jam ─────────────────────────────────────────────────────────────── */
+.jam {
+  position: relative;
+  margin-block: var(--sp-20);
   display: flex;
   align-items: center;
-  transition: height var(--dur-base) var(--ease-true);
-}
-.gapNote {
-  font-family: var(--font-kept);
-  font-size: var(--text-sm);
-  color: var(--ink-faint);
-  opacity: calc(1 - var(--reg) * 0.85);
-  transition: opacity var(--dur-base) var(--ease-true);
+  gap: var(--sp-8);
+  max-width: 40rem;
 }
 
-.gapKept {
-  display: block;
-  margin-top: var(--sp-3);
-  font-size: var(--text-lg);
-  letter-spacing: 0.02em;
+/* the line arriving from the left, stopping at the hand */
+.lane {
+  position: absolute;
+  left: 0;
+  right: 38%;
+  top: 50%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--sanguine) 22%, var(--sanguine));
+  opacity: 0.5;
+}
+
+.queue {
+  position: relative;
+  flex: 1;
+  max-width: 22rem;
+  /* the pile presses toward the stop as the section settles */
+  transform: translateX(calc((1 - var(--enter, 1)) * -0.7rem));
+}
+.front { position: relative; z-index: 2; }
+
+/* the queue behind the front docket */
+.ghost {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: var(--document);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+}
+.ghost1 { transform: translate(10px, 12px) rotate(1.6deg); opacity: 0.6; z-index: 1; }
+.ghost2 { transform: translate(20px, 24px) rotate(3deg); opacity: 0.35; z-index: 0; }
+
+.count {
+  position: absolute;
+  right: -0.5rem;
+  bottom: -1.6rem;
+  font-family: var(--font-kept);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+/* the hand — the stop the work can't get past on its own */
+.stop {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+.stopBar {
+  width: 3px;
+  height: 4.5rem;
+  background: var(--oxblood);
+  border-radius: 2px;
+  opacity: 0.85;
+}
+.stopLabel {
+  font-family: var(--font-kept);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--oxblood);
 }
 
 .close {
@@ -58,8 +101,12 @@
   font-style: italic;
   color: var(--ink);
   max-width: 30rem;
+  margin-top: var(--sp-8);
 }
 
 @media (max-width: 760px) {
   .problem { padding-block: var(--sp-24); }
+  .jam { margin-block: var(--sp-16) var(--sp-20); gap: var(--sp-5); }
+  .lane { display: none; }
+  .count { right: 0; }
 }

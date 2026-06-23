@@ -1,4 +1,5 @@
 import Nav from './components/Nav';
+import Rail from './components/Rail';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Approach from './components/Approach';
@@ -14,6 +15,7 @@ export default function App() {
     <>
       <a className="skip-link" href="#main">Skip to content</a>
       <Nav />
+      <Rail />
       <main id="main">
         <Hero />
         <Problem />

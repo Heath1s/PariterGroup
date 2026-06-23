@@ -1,11 +1,12 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
-import { useRegistration } from '../hooks/useRegistration';
+import { useEnter } from '../hooks/useScrollMotion';
+import Docket from './Docket';
 import styles from './Contact.module.css';
 
 type Fields = { name: string; company: string; email: string; message: string };
 
 export default function Contact() {
-  const ref = useRegistration<HTMLElement>();
+  const ref = useEnter<HTMLElement>();
   const [done, setDone] = useState(false);
   const [fields, setFields] = useState<Fields>({ name: '', company: '', email: '', message: '' });
   const [errors, setErrors] = useState<Partial<Fields>>({});
@@ -35,12 +36,27 @@ export default function Contact() {
   return (
     <section id="contact" ref={ref} className={styles.contact} aria-labelledby="contact-h">
       <div className="container">
-        {/* Arrival: the line kept apart all page lands as one record. */}
-        <div className={styles.arrival} aria-hidden="true">
-          <span className={styles.binding} />
-          <p className={`said ${styles.arrivalSaid}`}>side by side, as equals,</p>
-          <div className="rule" />
-          <p className={`kept ${styles.arrivalKept}`}>at the same pace.</p>
+        {/* The close: the working day reconciles itself — the mirror of the
+            morning order that cleared at the top of the page. */}
+        <div className={styles.close}>
+          <p className="eyebrow">End of day</p>
+          <h2 className={`said ${styles.closeHeading} rise`}>The day reconciles itself.</h2>
+          <div className={`${styles.summaryWrap} rise`}>
+            <Docket
+              code="EOD-2041"
+              kind="Day ledger"
+              said="Everything said today reached the books today."
+              rows={[
+                { label: 'Orders cleared', value: '47' },
+                { label: 'Re-keyed by hand', value: '0' },
+                { label: 'Hours given back', value: '≈ 2.5 / person' },
+              ]}
+              stamp="Reconciled"
+              note="06:30 opened · 18:00 closed"
+              animateStamp
+            />
+          </div>
+          <p className={`said ${styles.closePull}`}>Side by side, at the pace you set.</p>
         </div>
 
         <div className={styles.grid}>
@@ -105,7 +121,9 @@ export default function Contact() {
                     placeholder="Even a sentence helps — the more specific, the more useful." />
                 </div>
 
-                <button type="submit" className={`btn ${styles.submit}`}>Send it our way</button>
+                <button type="submit" className={`btn ${styles.submit}`}>
+                  Send it our way <span className="arrow" aria-hidden="true">→</span>
+                </button>
               </form>
             )}
           </div>

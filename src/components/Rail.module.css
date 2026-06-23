@@ -1,0 +1,119 @@
+/* The fixed spine. Lives in the left gutter on wide screens only, so it never
+   crowds the content column. Fades in from scroll so the hero stays clean. */
+.rail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--rail-w);
+  z-index: 50;
+  pointer-events: none;
+  display: none;
+  --inset: 7.5rem;
+  opacity: clamp(0, calc(var(--day) * 16), 0.92);
+  transition: opacity var(--dur-2) var(--ease-out);
+}
+@media (min-width: 1280px) { .rail { display: block; } }
+
+/* the full line and the brighter travelled fill, centred in the gutter */
+.line, .fill {
+  position: absolute;
+  left: 50%;
+  top: var(--inset);
+  bottom: var(--inset);
+  width: 1.5px;
+  border-radius: 2px;
+}
+.line { background: var(--sanguine); opacity: 0.2; transform: translateX(-50%); }
+.fill {
+  background: var(--sanguine);
+  transform: translateX(-50%) scaleY(var(--day));
+  transform-origin: top center;
+  opacity: 0.7;
+}
+
+/* route endpoints */
+.cap {
+  position: absolute;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background: var(--sanguine);
+}
+.capTop { top: calc(var(--inset) - 2.5px); opacity: 0.55; }
+.capBottom { bottom: calc(var(--inset) - 2.5px); opacity: 0.3; }
+
+.phase {
+  position: absolute;
+  left: 50%;
+  width: 7px;
+  height: 1.5px;
+  margin-left: -3.5px;
+  background: var(--sanguine);
+  opacity: 0.28;
+}
+
+/* the marker carries the clock down the page */
+.travel {
+  position: absolute;
+  left: 50%;
+  top: var(--inset);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate3d(-50%, calc(var(--day) * (100vh - var(--inset) * 2)), 0);
+  will-change: transform;
+}
+
+.bead {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--oxblood);
+  box-shadow:
+    0 0 0 4px var(--paper-said),
+    0 0 0 5px var(--rule-faint),
+    var(--shadow-1);
+}
+
+.read {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  text-align: center;
+}
+.time {
+  font-family: var(--font-kept);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  transition: color var(--dur-2) var(--ease-out);
+}
+.day {
+  font-family: var(--font-kept);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  transition: color var(--dur-2) var(--ease-out);
+}
+
+/* over dark-grounded sections, invert the readout so it stays legible */
+.dark .bead {
+  background: var(--sanguine);
+  box-shadow:
+    0 0 0 4px var(--paper-deep),
+    0 0 0 5px rgba(176, 84, 58, 0.45);
+  transition: background var(--dur-2) var(--ease-out);
+}
+.dark .time { color: var(--ink-on-deep); }
+.dark .day { color: var(--ink-on-deep-faint); }
+.dark .line { opacity: 0.32; }
+.dark .fill { opacity: 0.9; }
+.dark .cap { background: var(--sanguine); }
