@@ -4,13 +4,13 @@
   "note": "Real scenarios drawn from the workflows ran with pilot partners. We name the work, not the businesses — our partners' data and their identity stay theirs.",
   "quotes": [
     {
-      "body": "It understood our business — our grades, our customers, how a deal moves — better than any software we've run. It drafts our order confirmations and flags what doesn't match; I approve every one, and it's never sent a thing on its own. My re-keying went from three hours a day to twenty minutes — and in the first month it caught $11k in shipments we'd never invoiced.",
+      "body": "It understood our business better than any software we've run. It drafts our order confirmations and flags what doesn't match; I approve every one, and it's never sent a thing on its own. My re-keying went from three hours a day to twenty minutes. In the first month it caught $11k in shipments we'd never invoiced.",
       "who": "Order desk",
       "where": "Steel & commodity brokerage",
       "result": "3 hrs/day → 20 min · $11k recovered, month one"
     },
     {
-      "body": "Importing is forty emails a container. Pariter learned our shipment lifecycle and drafts the status updates — flagging an ETA slip before it turns into a demurrage charge. I approve everything. It's already caught two slips that would've been late-delivery penalties.",
+      "body": "Importing involves forty back and forth emails a container. Pariter learned our shipment lifecycle and drafts the status updates, flagging an ETA slip before it turns into a demurrage charge. It's already caught two slips that would've been late-delivery penalties.",
       "who": "Logistics desk",
       "where": "Tree-nut importer",
       "result": "Two ETA slips caught before penalty"
