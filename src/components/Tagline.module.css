@@ -1,0 +1,43 @@
+.section {
+  position: relative;
+  background: var(--paper-said);
+  /* extra height gives the scroll-fill room to play out while pinned */
+  height: 230vh;
+}
+
+.pin {
+  height: 100svh;
+  display: flex;
+  align-items: center;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: var(--sp-8);
+}
+
+.line {
+  font-weight: 300;
+  font-size: clamp(1.9rem, 4.6vw, 3.9rem);
+  line-height: 1.28;
+  letter-spacing: -0.018em;
+  max-width: 22ch;
+}
+
+.word {
+  --t: 0;
+  --faint: rgba(35, 32, 32, 0.16);
+  --target: var(--ink);
+  /* fills from faint → ink as --t goes 0 → 1; color only, no layout cost */
+  color: color-mix(in srgb, var(--target) calc(var(--t) * 100%), var(--faint));
+  transition: color 90ms linear;
+}
+
+.accent {
+  --target: var(--sanguine);
+}
+
+@media (max-width: 760px) {
+  .section { height: 200vh; }
+  .line { line-height: 1.24; }
+}

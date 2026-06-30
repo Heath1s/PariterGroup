@@ -14,17 +14,6 @@ export default function Capabilities() {
           <p className={`${styles.sub} rise`}>{caps.sub}</p>
         </header>
 
-        <ul className={styles.grid}>
-          {caps.items.map((it) => (
-            <li key={it.title} className={`${styles.card} rise`}>
-              <span className={`kept ${styles.tick}`} aria-hidden="true">✓ {it.tick}</span>
-              <div className="rule" aria-hidden="true" />
-              <h3 className={`said ${styles.title}`}>{it.title}</h3>
-              <p className={styles.body}>{it.body}</p>
-            </li>
-          ))}
-        </ul>
-
         {/* The forward register: what one record makes possible. */}
         <div className={styles.vision}>
           <p className="eyebrow">{caps.vision.eyebrow}</p>
@@ -39,7 +28,7 @@ export default function Capabilities() {
           <ul className={styles.diffGrid}>
             {caps.alternatives.items.map((a) => (
               <li key={a.tick}>
-                <span className={`kept ${styles.diffTick}`} aria-hidden="true">{a.tick}</span>
+                <span className={styles.diffTick} aria-hidden="true">{a.tick}</span>
                 <p className={styles.diffBody}>{a.body}</p>
               </li>
             ))}

@@ -17,7 +17,7 @@ export default function Trust() {
         <ul className={styles.grid}>
           {trust.points.map((p) => (
             <li key={p.k} className={styles.item}>
-              <span className={`kept ${styles.tick}`} aria-hidden="true">{p.k}</span>
+              <span className={styles.tick} aria-hidden="true">{p.k}</span>
               <h3 className={`said ${styles.title}`}>{p.t}</h3>
               <p className={styles.body}>{p.b}</p>
             </li>

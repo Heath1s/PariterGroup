@@ -31,10 +31,12 @@
 
 .tick {
   display: block;
+  font-family: var(--font-page);
   font-size: var(--text-xs);
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--rule);
-  opacity: 1;
   margin-bottom: var(--sp-3);
 }
 

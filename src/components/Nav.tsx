@@ -7,15 +7,21 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 16);
+    // Stay transparent over the full-height hero, go solid once past it.
+    const h = () => setScrolled(window.scrollY > window.innerHeight * 0.7);
+    h();
     window.addEventListener('scroll', h, { passive: true });
-    return () => window.removeEventListener('scroll', h);
+    window.addEventListener('resize', h, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', h);
+      window.removeEventListener('resize', h);
+    };
   }, []);
 
   const close = () => setOpen(false);
 
   return (
-    <header className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`} role="banner">
+    <header className={`${styles.nav} ${scrolled || open ? styles.scrolled : ''}`} role="banner">
       <div className={`container ${styles.inner}`}>
         <a href="#top" className={styles.brand} aria-label="Pariter Group — home">
           <span className={styles.mark}>

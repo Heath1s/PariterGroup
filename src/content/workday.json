@@ -1,0 +1,44 @@
+{
+  "eyebrow": "A day on Pariter",
+  "heading": "The work moves itself.",
+  "sub": "Not a sales pitch — just an ordinary day. What's said reaches what's kept on its own, and your people are free for the work that actually grows the business.",
+  "steps": [
+    {
+      "time": "06:41",
+      "kind": "Order",
+      "said": "Shipped the Henderson order — invoice to follow.",
+      "kept": "INV-2041 · Henderson Co · $4,820",
+      "stamp": "Invoiced",
+      "caption": "The morning's first order is in the books before anyone's had coffee. No one re-typed a thing."
+    },
+    {
+      "time": "10:12",
+      "kind": "Shipment",
+      "said": "Heads-up — the Lagos container slipped two days.",
+      "kept": "SHP-3389 · ETA +2 days · flagged",
+      "stamp": "Flagged",
+      "caption": "A delay that used to surface as a penalty now surfaces as a heads-up — drafted and waiting for a yes."
+    },
+    {
+      "time": "14:03",
+      "kind": "Schedule",
+      "said": "Customer wants Thursday's delivery moved to Monday.",
+      "kept": "JOB-7720 · moved → Mon 09:00",
+      "stamp": "Rebooked",
+      "caption": "Dispatch, the crew, and the office all work from one plan. The change lands everywhere at once."
+    },
+    {
+      "time": "17:48",
+      "kind": "End of day",
+      "said": "That's the lot — closing up.",
+      "kept": "47 cleared · 0 re-keyed by hand",
+      "stamp": "Reconciled",
+      "caption": "The day reconciles itself. Every line that was said today is in the books tonight."
+    }
+  ],
+  "metrics": [
+    { "label": "Orders cleared", "to": 47 },
+    { "label": "Re-keyed by hand", "to": 0 },
+    { "label": "Hours given back, per person", "to": 2.5, "suffix": " hrs" }
+  ]
+}

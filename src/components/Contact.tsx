@@ -1,6 +1,5 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
 import { useEnter } from '../hooks/useScrollMotion';
-import Docket from './Docket';
 import contact from '../content/contact.json';
 import styles from './Contact.module.css';
 
@@ -37,17 +36,6 @@ export default function Contact() {
   return (
     <section id="contact" ref={ref} className={styles.contact} aria-labelledby="contact-h">
       <div className="container">
-        {/* The close: the working day reconciles itself — the mirror of the
-            morning order that cleared at the top of the page. */}
-        <div className={styles.close}>
-          <p className="eyebrow">{contact.closeEyebrow}</p>
-          <h2 className={`said ${styles.closeHeading} rise`}>{contact.closeHeading}</h2>
-          <div className={`${styles.summaryWrap} rise`}>
-            <Docket {...contact.docket} animateStamp />
-          </div>
-          <p className={`said ${styles.closePull}`}>{contact.closePull}</p>
-        </div>
-
         <div className={styles.grid}>
           <div className={styles.intro}>
             <p className="eyebrow">{contact.introEyebrow}</p>

@@ -108,8 +108,11 @@
 }
 .diffTick {
   display: block;
-  font-size: var(--text-sm);
-  letter-spacing: 0.04em;
+  font-family: var(--font-page);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--sanguine);
   margin-bottom: var(--sp-3);
 }

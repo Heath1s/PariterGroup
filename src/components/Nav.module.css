@@ -1,55 +1,80 @@
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--paper-said) 90%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
   border-bottom: 1px solid transparent;
-  transition: border-color var(--dur-base) var(--ease-true);
+  transition: background var(--dur-2) var(--ease-out),
+              border-color var(--dur-2) var(--ease-out),
+              box-shadow var(--dur-2) var(--ease-out);
 }
-.nav.scrolled { border-bottom-color: var(--rule-faint); }
+.scrolled {
+  background: color-mix(in srgb, var(--paper-said) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--hair);
+  box-shadow: 0 1px 0 rgba(32, 27, 22, 0.04);
+}
 
 .inner {
   display: flex;
   align-items: center;
-  height: 66px;
+  height: 72px;
   gap: var(--sp-8);
 }
 
-/* Wordmark — two voices + the sanguine rule beneath */
-.brand { display: flex; flex-direction: column; gap: 3px; flex-shrink: 0; }
+/* Wordmark */
+.brand { display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; }
 .mark { display: flex; align-items: baseline; }
 .markSaid {
   font-family: var(--font-said);
-  font-style: italic;
-  font-size: var(--text-lg);
-  font-weight: 500;
-  color: var(--ink);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #FBF7F0;
+  text-shadow: 0 1px 10px rgba(28, 24, 26, 0.28);
+  transition: color var(--dur-2) var(--ease-out), text-shadow var(--dur-2) var(--ease-out);
 }
 .markGroup {
-  font-family: var(--font-kept);
+  font-family: var(--font-page);
   font-size: var(--text-xs);
-  letter-spacing: 0.04em;
-  color: var(--ink-muted);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(251, 247, 240, 0.7);
   text-transform: uppercase;
+  transition: color var(--dur-2) var(--ease-out);
 }
-.markRule { height: 1px; width: 100%; background: var(--rule); }
+.markRule {
+  height: 1px;
+  width: 100%;
+  background: var(--sanguine);
+  transform: scaleX(0.7);
+  transform-origin: left;
+  opacity: 0.9;
+}
+.scrolled .markSaid { color: var(--ink); text-shadow: none; }
+.scrolled .markGroup { color: var(--ink-muted); }
 
 .center { flex: 1; display: flex; justify-content: center; }
 .links { display: flex; align-items: center; gap: var(--sp-8); }
 .link {
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--ink-muted);
+  color: rgba(251, 247, 240, 0.88);
+  text-shadow: 0 1px 10px rgba(28, 24, 26, 0.28);
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
-  transition: color var(--dur-fast) var(--ease-true),
-              border-color var(--dur-fast) var(--ease-true);
+  transition: color var(--dur-1) var(--ease-out),
+              border-color var(--dur-1) var(--ease-out),
+              text-shadow var(--dur-2) var(--ease-out);
 }
-.link:hover { color: var(--ink); border-bottom-color: var(--rule); }
+.link:hover { border-bottom-color: currentColor; }
+.scrolled .link { color: var(--ink-muted); text-shadow: none; }
+.scrolled .link:hover { color: var(--ink); border-bottom-color: var(--sanguine); }
 
-.cta { padding: 0.5rem 1.1rem; font-size: var(--text-sm); flex-shrink: 0; }
+.cta { padding: 0.55rem 1.15rem; font-size: var(--text-sm); flex-shrink: 0; }
 
 /* Hamburger */
 .burger {
@@ -64,24 +89,26 @@
 }
 .bar {
   display: block; width: 22px; height: 1.5px;
-  background: var(--ink); border-radius: 2px;
-  transition: transform var(--dur-base) var(--ease-true),
-              opacity var(--dur-base) var(--ease-true);
+  background: #FBF7F0; border-radius: 2px;
+  transition: transform var(--dur-2) var(--ease-out),
+              opacity var(--dur-2) var(--ease-out),
+              background var(--dur-2) var(--ease-out);
 }
+.scrolled .bar { background: var(--ink); }
 .b1 { transform: translateY(6.5px) rotate(45deg); }
 .b2 { opacity: 0; }
 .b3 { transform: translateY(-6.5px) rotate(-45deg); }
 
 .mobile {
-  position: absolute; top: 66px; left: 0; right: 0;
+  position: absolute; top: 72px; left: 0; right: 0;
   background: var(--paper-said);
-  border-bottom: 1px solid var(--rule-faint);
+  border-bottom: 1px solid var(--hair);
   padding: var(--sp-4) var(--sp-6) var(--sp-6);
 }
 .mLink {
   display: block; padding: var(--sp-3) 0;
   font-size: var(--text-base); color: var(--ink-muted);
-  border-bottom: 1px solid var(--rule-faint);
+  border-bottom: 1px solid var(--hair);
 }
 .mLink:hover { color: var(--ink); }
 .mCta { display: flex; justify-content: center; margin-top: var(--sp-4); width: 100%; }

@@ -7,20 +7,31 @@
    ─────────────────────────────────────────────────────────────────────────── */
 :root {
   /* ── Papers ──────────────────────────────────────────────────────────────
-     Manila ground for the day's light; a cooler ledger band; a crisp document
-     stock so the dockets read like real typed paper; the deep iron ground. */
-  --paper-said:  #F4ECDD;   /* Manila — primary warm ground */
-  --paper-kept:  #ECE5D6;   /* Ledger — cooler secondary band */
-  --document:    #FCF8F0;   /* Document — crisp near-white docket stock */
-  --paper-deep:  #1E1915;   /* Iron — deep ground for dark bands */
+     Sandstone-leaning: a cool warm-greige primary ground (the cream of the
+     reference), a slightly cooler band, crisp document stock, and a deep
+     iron ground that now carries a faint blue cast (dusk, not soot). */
+  --paper-said:  #F4F1EA;   /* Greige cream — primary ground (Sandstone) */
+  --paper-kept:  #ECE8DF;   /* cooler secondary band */
+  --document:    #FCFAF5;   /* Document — crisp near-white stock */
+  --paper-deep:  #1B1A1C;   /* Iron-dusk — deep ground for dark bands */
 
   /* ── Ink ── */
-  --ink:         #201B16;   /* warm near-black, iron-gall */
-  --ink-muted:   #6C6150;   /* secondary */
-  --ink-faint:   #9C8F79;   /* tertiary / captions */
-  --ink-on-deep: #ECE4D5;
-  --ink-on-deep-muted: rgba(236, 228, 213, 0.60);
-  --ink-on-deep-faint: rgba(236, 228, 213, 0.34);
+  --ink:         #232020;   /* warm near-black */
+  --ink-muted:   #6A6359;   /* secondary */
+  --ink-faint:   #9A9387;   /* tertiary / captions */
+  --ink-on-deep: #ECE7DD;
+  --ink-on-deep-muted: rgba(236, 231, 221, 0.60);
+  --ink-on-deep-faint: rgba(236, 231, 221, 0.34);
+
+  /* ── Atmosphere — the hero sky/land at golden hour (Sandstone) ──────────── */
+  --sky-high:    #8B93A0;   /* cool overcast top */
+  --sky-mid:     #BFB6AD;   /* hazy middle */
+  --sky-glow:    #E7C49B;   /* warm horizon light */
+  --sun:         #F4E3C6;   /* low sun bloom */
+  --land-far:    #C9B7A0;   /* distant ridge (atmospheric, light) */
+  --land-mid:    #B09A80;   /* middle ridge */
+  --land-near:   #8A7259;   /* near ridge */
+  --land-fore:   #5E4C3C;   /* foreground ground */
 
   /* ── The line, the ruling, the binding ──────────────────────────────────
      Sanguine is THE line — route, rule, conveyor. Oxblood is the binding:
@@ -41,7 +52,7 @@
   /* ── Type ────────────────────────────────────────────────────────────────
      A deliberate trio: a characterful optical serif (the voice), a warm
      humanist grotesque (the page), and a mono ledger face (the documents). */
-  --font-said: 'Fraunces', 'Hoefler Text', Georgia, serif;       /* the voice */
+  --font-said: 'Newsreader', 'Hoefler Text', Georgia, serif;     /* the voice — light editorial serif */
   --font-page: 'Hanken Grotesk', system-ui, -apple-system, sans-serif; /* the page */
   --font-kept: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;   /* the ledger */
 

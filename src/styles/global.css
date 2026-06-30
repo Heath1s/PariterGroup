@@ -1,7 +1,7 @@
 /* ───────────────────────────────────────────────────────────────────────────
    Pariter Group — "The Day's Run" global styles
    ─────────────────────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 @import './tokens.css';
 
 *, *::before, *::after {
@@ -15,6 +15,13 @@ html {
   scroll-padding-top: 5.5rem; /* clear the sticky nav on anchor jumps */
   -webkit-text-size-adjust: 100%;
 }
+
+/* Lenis smooth-scroll (active only when the hook mounts it) */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
 
 body {
   font-family: var(--font-page);
@@ -51,7 +58,7 @@ h1, h2, h3, h4 {
   font-optical-sizing: auto;
   color: var(--ink);
   line-height: var(--leading-tight);
-  font-weight: 500;
+  font-weight: 400;        /* light editorial display — Sandstone air */
   letter-spacing: var(--tracking-tight);
   text-wrap: balance;
 }
@@ -92,12 +99,13 @@ ul, ol { list-style: none; }
   color: var(--ink-muted);
 }
 
-/* Small uppercase label, set in the ledger voice. */
+/* Small uppercase label — set in the page sans, tracked, not the mono.
+   (Mono is reserved for actual ledger data: dockets, clock, figures.) */
 .eyebrow {
-  font-family: var(--font-kept);
+  font-family: var(--font-page);
   font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: var(--tracking-wide);
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--sanguine);
 }

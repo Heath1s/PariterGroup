@@ -17,7 +17,7 @@ export default function Testimonials() {
         <ul className={styles.grid}>
           {testimonials.quotes.map((q) => (
             <li key={q.where} className={`${styles.card} rise`}>
-              <p className={`kept ${styles.sector}`}>{q.who} · {q.where}</p>
+              <p className={styles.sector}>{q.who} · {q.where}</p>
               <blockquote className={`said ${styles.quote}`}>{q.body}</blockquote>
               <div className={styles.resultRow}>
                 <span className={styles.resultBar} aria-hidden="true" />

@@ -36,25 +36,37 @@ collections:
                   - { name: value, label: Value, widget: string }
               - { name: stamp, label: Stamp, widget: string }
               - { name: note, label: Note, widget: text }
-      - name: problem
-        label: "Problem"
-        file: "src/content/problem.json"
+      - name: tagline
+        label: "Tagline (scroll-fill)"
+        file: "src/content/tagline.json"
+        fields:
+          - { name: eyebrow, label: Eyebrow, widget: string }
+          - { name: text, label: "Line — fills to dark on scroll", widget: text }
+          - { name: accent, label: "Closing phrase — fills to red", widget: text }
+      - name: workday
+        label: "A day on Pariter (scroll story)"
+        file: "src/content/workday.json"
         fields:
           - { name: eyebrow, label: Eyebrow, widget: string }
           - { name: heading, label: Heading, widget: string }
-          - { name: body, label: Body, widget: text }
-          - name: docket
-            label: "Held docket"
-            widget: object
+          - { name: sub, label: Subtext, widget: text }
+          - name: steps
+            label: "Steps (each travels said → kept)"
+            widget: list
             fields:
-              - { name: code, label: Code, widget: string }
+              - { name: time, label: "Time of day", widget: string }
               - { name: kind, label: Kind, widget: string }
-              - { name: said, label: "Said line", widget: string }
+              - { name: said, label: "What's said", widget: string }
+              - { name: kept, label: "What's recorded", widget: string }
               - { name: stamp, label: Stamp, widget: string }
-              - { name: note, label: Note, widget: text }
-          - { name: count, label: "Queue count", widget: string }
-          - { name: stopLabel, label: "Stop label", widget: string }
-          - { name: close, label: "Closing line", widget: string }
+              - { name: caption, label: "Caption", widget: text }
+          - name: metrics
+            label: "End-of-day metrics"
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: to, label: "Counts up to", widget: number }
+              - { name: suffix, label: "Suffix (optional)", widget: string, required: false }
       - name: approach
         label: "Approach"
         file: "src/content/approach.json"
