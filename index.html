@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="We walk alongside established businesses to connect their separate tools into one record, clear the admin backlog, and free their people for work that grows the company." />
     <meta name="theme-color" content="#F4ECDD" />
@@ -24,13 +26,24 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Pariter Group",
-        "url": "https://pariter.co/",
-        "logo": "https://pariter.co/favicon.svg",
-        "description": "Pariter Group walks alongside established businesses to connect their tools, clear the admin backlog, and free their people for work that actually grows the company.",
-        "email": "hello@paritergroup.com",
-        "slogan": "Side by side, at your pace."
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "name": "Pariter Group",
+            "url": "https://pariter.co/",
+            "logo": "https://pariter.co/icon-512.png",
+            "image": "https://pariter.co/og.png",
+            "description": "Pariter Group walks alongside established businesses to connect their tools, clear the admin backlog, and free their people for work that actually grows the company.",
+            "email": "hello@paritergroup.com",
+            "slogan": "Side by side, at your pace."
+          },
+          {
+            "@type": "WebSite",
+            "name": "Pariter Group",
+            "alternateName": "pariter.co",
+            "url": "https://pariter.co/"
+          }
+        ]
       }
     </script>
   </head>
