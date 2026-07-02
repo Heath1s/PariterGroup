@@ -4,29 +4,56 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Pariter Group walks alongside established businesses to connect their tools, clear the admin backlog, and free their people for work that actually grows the company." />
+    <meta name="description" content="We walk alongside established businesses to connect their separate tools into one record, clear the admin backlog, and free their people for work that grows the company." />
     <meta name="theme-color" content="#F4ECDD" />
-    <title>Pariter Group &mdash; Side by side, at your pace.</title>
-    <meta property="og:title" content="Pariter Group — Side by side, at your pace." />
-    <meta property="og:description" content="We walk alongside established businesses, bring their separate tools into one record, and give their people back their hours." />
+    <title>Pariter Group &mdash; Systems Integration &amp; Back-Office Automation</title>
+    <link rel="canonical" href="https://pariter.co/" />
+    <meta property="og:title" content="Pariter Group — Systems Integration & Back-Office Automation" />
+    <meta property="og:description" content="We walk alongside established businesses to connect their separate tools into one record, clear the admin backlog, and free their people for work that grows the company." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pariter.co/" />
+    <meta property="og:site_name" content="Pariter Group" />
+    <meta property="og:image" content="https://pariter.co/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Pariter Group — Your team's time belongs to better things." />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Pariter Group",
+        "url": "https://pariter.co/",
+        "logo": "https://pariter.co/favicon.svg",
+        "description": "Pariter Group walks alongside established businesses to connect their tools, clear the admin backlog, and free their people for work that actually grows the company.",
+        "email": "hello@paritergroup.com",
+        "slogan": "Side by side, at your pace."
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // After accepting a Netlify Identity invite, send the editor to /admin/.
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', function (user) {
-          if (!user) {
-            window.netlifyIdentity.on('login', function () {
-              document.location.href = '/admin/';
-            });
-          }
-        });
+      // Netlify Identity is only needed here to catch invite/recovery links
+      // (they land on the site root with a token in the hash). Load the widget
+      // lazily in that case only, so normal visitors never fetch it.
+      if (/[#&](invite_token|confirmation_token|recovery_token|email_change_token)=/.test(window.location.hash)) {
+        var s = document.createElement('script');
+        s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+        s.onload = function () {
+          window.netlifyIdentity.on('init', function (user) {
+            if (!user) {
+              window.netlifyIdentity.on('login', function () {
+                document.location.href = '/admin/';
+              });
+            }
+          });
+        };
+        document.head.appendChild(s);
       }
     </script>
   </body>
