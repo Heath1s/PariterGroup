@@ -1,12 +1,34 @@
 {
-  "eyebrow": "A day on Pariter",
+  "eyebrow": "One ordinary Tuesday",
   "heading": "The work moves itself.",
   "sub": "Not a sales pitch — just an ordinary day. What's said reaches what's kept on its own, and your people are free for the work that actually grows the business.",
+  "dayLabel": "Tuesday",
+  "ledgerTitle": "Pariter · Day Book",
+  "saidLabel": "What's said",
+  "keptLabel": "What's kept",
+  "quiet": "06:30 — nothing yet. The day will file itself.",
   "steps": [
     {
       "time": "06:41",
       "kind": "Order",
+      "from": "Dispatch, at the yard",
+      "channel": "Text",
       "said": "Shipped the Henderson order — invoice to follow.",
+      "marks": [
+        {
+          "text": "Henderson order",
+          "label": "Customer · PO"
+        },
+        {
+          "text": "invoice to follow",
+          "label": "Action"
+        }
+      ],
+      "entry": {
+        "ref": "INV-2041",
+        "desc": "Henderson — invoiced",
+        "fig": "4,820.00"
+      },
       "kept": "INV-2041 · Henderson Co · $4,820",
       "stamp": "Invoiced",
       "caption": "The morning's first order is in the books before anyone's had coffee. No one re-typed a thing."
@@ -14,7 +36,24 @@
     {
       "time": "10:12",
       "kind": "Shipment",
+      "from": "Forwarder, Lagos",
+      "channel": "Email",
       "said": "Heads-up — the Lagos container slipped two days.",
+      "marks": [
+        {
+          "text": "Lagos container",
+          "label": "Shipment"
+        },
+        {
+          "text": "slipped two days",
+          "label": "ETA change"
+        }
+      ],
+      "entry": {
+        "ref": "SHP-3389",
+        "desc": "ETA +2d — client noted",
+        "fig": "+2 days"
+      },
       "kept": "SHP-3389 · ETA +2 days · flagged",
       "stamp": "Flagged",
       "caption": "A delay that used to surface as a penalty now surfaces as a heads-up — drafted and waiting for a yes."
@@ -22,7 +61,24 @@
     {
       "time": "14:03",
       "kind": "Schedule",
+      "from": "Aldrich & Sons, by phone",
+      "channel": "Phone",
       "said": "Customer wants Thursday's delivery moved to Monday.",
+      "marks": [
+        {
+          "text": "Thursday's delivery",
+          "label": "Job"
+        },
+        {
+          "text": "moved to Monday",
+          "label": "Re-slot"
+        }
+      ],
+      "entry": {
+        "ref": "JOB-7720",
+        "desc": "Crew & dispatch synced",
+        "fig": "Mon 09:00"
+      },
       "kept": "JOB-7720 · moved → Mon 09:00",
       "stamp": "Rebooked",
       "caption": "Dispatch, the crew, and the office all work from one plan. The change lands everywhere at once."
@@ -30,15 +86,37 @@
     {
       "time": "17:48",
       "kind": "End of day",
+      "from": "The office, locking up",
+      "channel": "Text",
       "said": "That's the lot — closing up.",
+      "marks": [],
+      "entry": {
+        "ref": "DAY BOOK",
+        "desc": "Every line posted — nothing re-keyed",
+        "fig": "47 / 0"
+      },
       "kept": "47 cleared · 0 re-keyed by hand",
       "stamp": "Reconciled",
       "caption": "The day reconciles itself. Every line that was said today is in the books tonight."
     }
   ],
+  "close": {
+    "totals": "47 cleared · 0 re-keyed by hand",
+    "stamp": "Reconciled"
+  },
   "metrics": [
-    { "label": "Orders cleared", "to": 47 },
-    { "label": "Re-keyed by hand", "to": 0 },
-    { "label": "Hours given back, per person", "to": 2.5, "suffix": " hrs" }
+    {
+      "label": "Orders cleared",
+      "to": 47
+    },
+    {
+      "label": "Re-keyed by hand",
+      "to": 0
+    },
+    {
+      "label": "Hours given back, per person",
+      "to": 2.5,
+      "suffix": " hrs"
+    }
   ]
 }
