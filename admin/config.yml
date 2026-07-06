@@ -50,16 +50,43 @@ collections:
           - { name: eyebrow, label: Eyebrow, widget: string }
           - { name: heading, label: Heading, widget: string }
           - { name: sub, label: Subtext, widget: text }
+          - { name: dayLabel, label: "Day shown on the ledger sheet", widget: string }
+          - { name: ledgerTitle, label: "Ledger sheet title", widget: string }
+          - { name: saidLabel, label: "Left column label", widget: string }
+          - { name: keptLabel, label: "Right column label", widget: string }
+          - { name: quiet, label: "Pre-dawn empty-inbox line", widget: string }
           - name: steps
             label: "Steps (each travels said → kept)"
             widget: list
             fields:
               - { name: time, label: "Time of day", widget: string }
               - { name: kind, label: Kind, widget: string }
+              - { name: from, label: "Who said it", widget: string }
+              - { name: channel, label: "Channel (Text / Email / Phone)", widget: string }
               - { name: said, label: "What's said", widget: string }
-              - { name: kept, label: "What's recorded", widget: string }
+              - name: marks
+                label: "Highlighted phrases (must appear verbatim in What's said)"
+                widget: list
+                required: false
+                fields:
+                  - { name: text, label: "Exact phrase", widget: string }
+                  - { name: label, label: "Tag shown above it", widget: string }
+              - name: entry
+                label: "Ledger entry"
+                widget: object
+                fields:
+                  - { name: ref, label: Reference, widget: string }
+                  - { name: desc, label: Description, widget: string }
+                  - { name: fig, label: Figure, widget: string }
+              - { name: kept, label: "One-line summary (SEO / fallback)", widget: string }
               - { name: stamp, label: Stamp, widget: string }
               - { name: caption, label: "Caption", widget: text }
+          - name: close
+            label: "End-of-day close"
+            widget: object
+            fields:
+              - { name: totals, label: "Totals line", widget: string }
+              - { name: stamp, label: "Grand stamp", widget: string }
           - name: metrics
             label: "End-of-day metrics"
             widget: list
